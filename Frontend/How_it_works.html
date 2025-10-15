@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Stories - ReCircle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 12px 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3d5a40;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px 16px;
+            border: none;
+            background-color: #3d5a40;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .search-bar::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3d5a40;
+        }
+
+        .login-btn {
+            background-color: #3d5a40;
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .notification-icon, .profile-icon {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #3d5a40;
+        }
+
+        .notification-icon svg, .profile-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: #333;
+        }
+
+        .profile-icon svg {
+            stroke: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+
+        .page-header {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 40px;
+            color: #3d5a40;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .story-input-section {
+            background: #f8f9f5;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 2px solid #e8ebe5;
+        }
+
+        .input-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .you-label {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            flex-shrink: 0;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+            background: white;
+            color: #666;
+        }
+
+        .input-field::placeholder {
+            color: #aaa;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 16px;
+            background: #ddd;
+            color: #666;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .action-btn:hover {
+            background: #ccc;
+        }
+
+        .stats-section {
+            background: #e8ede5;
+            padding: 32px;
+            border-radius: 16px;
+            margin-top: 24px;
+        }
+
+        .stats-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3d5a40;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #3d5a40;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .community-section {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3d5a40;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-btn {
+            font-size: 13px;
+            color: #3d5a40;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .filter-btn:hover {
+            opacity: 0.8;
+        }
+
+        .updates {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .story-card {
+            background: white;
+            border: 2px solid #3d5a40;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .story-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3d5a40, #2d4a30);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .story-info {
+            flex: 1;
+        }
+
+        .story-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .story-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .story-role {
+            background: #f0f0f0;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .story-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border-radius: 12px;
+            margin-bottom: 14px;
+            object-fit: cover;
+        }
+
+        .story-footer {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+            font-size: 13px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .footer-item:hover {
+            color: #3d5a40;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3d5a40;
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-brand-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-tagline {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .footer-mission {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+        }
+
+        .newsletter {
+            margin-top: 30px;
+        }
+
+        .newsletter h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .newsletter-form button {
+            padding: 10px 24px;
+            background: white;
+            color: #3d5a40;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: #f0f0f0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .footer-copyright {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+            fill: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                padding: 12px 20px;
+                gap: 12px;
+            }
+
+            .search-container {
+                order: 3;
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a:not(.login-btn) {
+                font-size: 12px;
+            }
+
+            .main-content {
+                padding: 0 20px;
+            }
+
+            .page-header {
+                padding: 30px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-container {
+                padding: 0 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo-section">
+        <div class="logo">
+            <img src="Logo.png" alt="ReCircle Logo">
+        </div>
+        <div class="brand-name">ReCircle</div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search">
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">How it Works</a>
+        <a href="#">Community</a>
+        <a href="#">Impact</a>
+        <a href="#" class="login-btn">Login / Signup</a>
+        <div class="header-icons">
+                <span class="notification-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 01-3.46 0"/>
+                    </svg>
+                </span>
+            <span class="profile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </span>
+        </div>
+    </nav>
+</header>
+
+<div class="main-content">
+    <div class="page-header">
+        <h1>Community Stories</h1>
+        <p>See how our community is making a difference, one donation at a time.</p>
+
+        <div class="story-input-section">
+            <div class="input-header">
+                <div class="you-label">You</div>
+                <input type="text" class="input-field" placeholder="Share your impact story...">
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn"><i class="fas fa-camera"></i> Photo</button>
+                <button class="action-btn"><i class="fas fa-map-marker-alt"></i> Location</button>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stats-title">This Week's Community Impact</div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">147</div>
+                    <div class="stat-label">Stories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">892</div>
+                    <div class="stat-label">Comments</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">234</div>
+                    <div class="stat-label">Engagement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="community-section">
+        <div class="section-title">
+            Community Updates
+            <button class="filter-btn">Filter</button>
+        </div>
+
+        <div class="updates">
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="avatar">SA</div>
+                    <div class="story-info">
+                        <div class="story-name">Sarah Ali</div>
+                        <div class="story-meta">
+                            <span class="story-role">Volunteer</span>
+                            <span>2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-content">
+                    Just completed 300+ pickups! Grateful to be part of the amazing community we're building together. Every action makes a difference! 💚
+                </div>
+                <div class="story-footer">
+                    <div class="footer-item"><i class="fas fa-heart"></i> 12</div>
+                    <div class="footer-item"><i class="fas fa-comment"></i> 5</div>
+                    <div class="footer-item"><i class="fas fa-share"></i> 2</div>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #1a4d7a, #2d6ba3);">MM</div>
+                    <div class="story-info">
+                        <div class="story-name">Mai Mahmoud</div>
+                        <div class="story-meta">
+                            <span class="story-role">Donor</span>
+                            <span>3 days ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-content">
+                    Thank you to the community we met a lovely family of 5. Instead of letting it go to waste, I was able to donate it. The gratitude in their eyes made my day! ✨
+                </div>
+                <div class="story-footer">
+                    <div class="footer-item"><i class="fas fa-heart"></i> 8</div>
+                    <div class="footer-item"><i class="fas fa-comment"></i> 3</div>
+                    <div class="footer-item"><i class="fas fa-share"></i> 1</div>
+                </div>
+            </div>
+
+            <div class="story-card">
+                <div class="story-header">
+                    <div class="avatar" style="background: linear-gradient(135deg, #7a4d1a, #a37a2d);">SW</div>
+                    <div class="story-info">
+                        <div class="story-name">Salma Walsad</div>
+                        <div class="story-meta">
+                            <span class="story-role">Recipient</span>
+                            <span>5 days ago</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-content">
+                    What a wonderful initiative! I received items that I urgently needed for our community. Your contribution provides gifts and meaningful support. Your kindness is changing lives! 🙏
+                </div>
+                <img src="https://images.unsplash.com/photo-1469571486292-2ba03a24127d?w=600&h=200&fit=crop" alt="Community support" class="story-image">
+                <div class="story-footer">
+                    <div class="footer-item"><i class="fas fa-heart"></i> 24</div>
+                    <div class="footer-item"><i class="fas fa-comment"></i> 10</div>
+                    <div class="footer-item"><i class="fas fa-share"></i> 5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="Logo.png" alt="ReCircle Logo">
+            </div>
+            <div class="footer-brand">
+                <div class="footer-brand-name">ReCircle</div>
+                <div class="footer-tagline">Turn Surplus into Support</div>
+            </div>
+        </div>
+
+        <p class="footer-mission">Building stronger communities by reducing waste and connecting those who have with those who need.</p>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How it Works</a></li>
+                    <li><a href="#">Impact Stories</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Safety Guidelines</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Community Standards</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <h4>Stay Updated</h4>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter Your Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <span>© 2024 ReCircle. All rights reserved.</span>
+                <span>Built with ❤️ for our community.</span>
+            </div>
+
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div style="font-size: 11px; opacity: 0.8;">Made with sustainability in mind</div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

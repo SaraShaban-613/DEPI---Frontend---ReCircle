@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in - ReCircle</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: white;
+      padding: 12px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #3d5a40;
+    }
+
+    .search-container {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 10px 16px;
+      border: none;
+      background-color: #3d5a40;
+      color: white;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .search-bar::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #3d5a40;
+    }
+
+    .login-btn {
+      background-color: #3d5a40;
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .notification-icon, .profile-icon {
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #3d5a40;
+    }
+
+    .notification-icon svg, .profile-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #333;
+    }
+
+    .profile-icon svg {
+      stroke: white;
+    }
+
+    /* Main Content */
+    .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 74px);
+      padding: 40px 20px;
+      background: #f0f0f0;
+    }
+
+    .login-card {
+      background: white;
+      border: 4px solid #3d5a40;
+      border-radius: 12px;
+      padding: 50px 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .login-card h1 {
+      font-size: 28px;
+      color: #3d5a40;
+      margin-bottom: 8px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .login-subtitle {
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #3d5a40;
+    }
+
+    .login-btn-main {
+      width: 100%;
+      padding: 12px;
+      background: #3d5a40;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .login-btn-main:hover {
+      background: #2d4a30;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .divider-text {
+      font-size: 12px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    .google-btn {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: white;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.3s;
+    }
+
+    .google-btn:hover {
+      background: #f9f9f9;
+    }
+
+    .google-btn i {
+      font-size: 16px;
+      color: #4285f4;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .signup-link a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3d5a40;
+      color: white;
+      padding: 50px 0 30px;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo {
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-name {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .footer-contact {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-item i {
+      font-size: 16px;
+    }
+
+    .footer-mission {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+      opacity: 1;
+    }
+
+    .newsletter {
+      margin-top: 30px;
+    }
+
+    .newsletter h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .newsletter-form button {
+      padding: 10px 24px;
+      background: white;
+      color: #3d5a40;
+      border: none;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background: #f0f0f0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .footer-social i {
+      font-size: 16px;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-wrap: wrap;
+        padding: 12px 20px;
+        gap: 12px;
+      }
+
+      .search-container {
+        order: 3;
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a:not(.login-btn) {
+        display: none;
+      }
+
+      .login-card {
+        padding: 30px 25px;
+      }
+
+      .footer-container {
+        padding: 0 20px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-section">
+    <div class="logo">
+      <img src="Logo.png" alt="ReCircle Logo">
+    </div>
+    <div class="brand-name">ReCircle</div>
+  </div>
+
+  <div class="search-container">
+    <input type="text" class="search-bar" placeholder="Search">
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">How it Works</a>
+    <a href="#">Community</a>
+    <a href="#">Impact</a>
+    <a href="#" class="login-btn">Login / Signup</a>
+    <div class="header-icons">
+                <span class="notification-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 01-3.46 0"/>
+                    </svg>
+                </span>
+      <span class="profile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </span>
+    </div>
+  </nav>
+</header>
+
+<div class="main-container">
+  <div class="login-card">
+    <h1>ReCircle</h1>
+    <p class="login-subtitle">Turn Surplus into Support</p>
+
+    <form>
+      <div class="form-group">
+        <label for="email">Email or mobile</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="login-btn-main">Log In</button>
+    </form>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-text">or</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <button class="google-btn">
+      <i class="fab fa-google"></i>
+      Continue with Google
+    </button>
+
+    <div class="signup-link">
+      Don't have an account? <a href="#">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="Logo.png" alt="ReCircle Logo">
+      </div>
+      <div class="footer-brand">
+        <div class="footer-brand-name">ReCircle</div>
+        <div class="footer-tagline">Turn Surplus into Support</div>
+      </div>
+    </div>
+
+    <div class="footer-contact">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>hello@recircle.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+201557020701</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Cairo, Egypt</span>
+      </div>
+    </div>
+
+    <p class="footer-mission">Building stronger communities by reducing waste and connecting those who have with those who need.</p>
+
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">How it Works</a></li>
+          <li><a href="#">Impact Stories</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Safety Guidelines</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Community Standards</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="newsletter">
+      <h4>Stay Updated</h4>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter You Email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <span>© 2024 ReCircle. All rights reserved.<br>Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for our community.</span>
+      </div>
+
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+
+      <div style="font-size: 11px; opacity: 0.8;">Made with sustainability in mind</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
