@@ -4,17 +4,38 @@ function Footer() {
     return (
         <footer>
             <div className="footer-container">
-                <div className="footer-top">
-                    <div className="footer-logo">
-                        <img src={logo} alt="ReCircle Logo"></img>
+                <div className="footer-brand-info d-flex justify-content-between align-items-center">
+                    <div className="footer-top">
+                        <div className="footer-logo">
+                            <img src={logo} alt="ReCircle Logo"></img>
+                        </div>
+                        <div className="footer-brand">
+                            <div className="footer-brand-name fs-2">ReCircle</div>
+                            <div className="footer-tagline">Turn Surplus into Support</div>
+                        </div>
                     </div>
-                    <div className="footer-brand">
-                        <div className="footer-brand-name fs-2">ReCircle</div>
-                        <div className="footer-tagline">Turn Surplus into Support</div>
+                    <div className="footer-email d-flex gap-2 fw-semibold">
+
+                        <i className='bi bi-envelope'></i>
+                        <p><a href="mailto:hello@recircle.com">hello@recircle.com</a>
+                        </p>
+
+                    </div>
+                    <div className="footer-telephone d-flex gap-2 fw-semibold">
+
+                        <i className='bi bi-telephone'></i>
+                        <p><a href="tel:+201557020701">+20 155 702 0701</a>
+                        </p>
+
+                    </div>
+                    <div className="footer-location d-flex gap-2 fw-semibold">
+                        <i className='bi bi-geo-alt'></i>
+                        <p>Cairo, Egypt</p>
                     </div>
                 </div>
 
-                <p className="footer-mission">Building stronger communities by reducing waste and connecting those who have with those who need.</p>
+                <p className="footer-mission"
+                    style={{ fontSize: "1rem" }}>Building stronger communities by reducing waste and connecting those who have with those who need.</p>
 
                 <div className="footer-content">
                     <div className="footer-section">
@@ -56,7 +77,7 @@ function Footer() {
                     </form>
                 </div>
 
-                <div className="footer-bottom">
+                <div className="footer-bottom fw-semibold">
                     <div className="footer-copyright">
                         <span>© 2024 ReCircle. All rights reserved.</span>
                         <span>Built with ❤️ for our community.</span>
@@ -64,19 +85,19 @@ function Footer() {
 
                     <div className="footer-social">
                         <Link to="#" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" stroke-width="2">
+                            <svg viewBox="0 0 24 24" style={{ strokeWidth: "2" }}>
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                             </svg>
                         </Link>
                         <Link to="#" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" stroke-width="2">
+                            <svg viewBox="0 0 24 24" style={{ strokeWidth: "2" }}>
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                             </svg>
                         </Link>
                         <Link to="#" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" stroke-width="2">
+                            <svg viewBox="0 0 24 24" style={{ strokeWidth: "2" }}>
                                 <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                             </svg>
                         </Link>

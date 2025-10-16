@@ -32,7 +32,7 @@ function AwardCard({ title, date, description, progress, bg, iconColor, border }
                         <div className="progress mx-auto" style={{ height: "0.6rem" }}>
                             <div className="progress-bar" style={{ width: `${progress}%` }}></div>
                         </div>
-                        <p className="text-end fw-semibold mb-0 mt-1 small">{progress}/50</p>
+                        <p className="text-end fw-semibold mb-0 mt-1 small">{progress / 100 * 50}/50</p>
                     </>
                 )}
             </div>
