@@ -861,3 +861,160 @@ footer {
         text-align: center;
     }
 }
+
+
+
+
+
+
+/* ==========================================  Volunteer Card ========================================== */
+
+.volstatcard.row {
+    gap: 4rem !important;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.volstatcard>div {
+    border: 1px solid var(--primary-colour);
+    border-radius: 2.5rem;
+}
+
+.volunteerStatCard .icon {
+    border: 1px solid var(--primary-colour);
+    background-color: #E8EEE9;
+}
+
+.volunteerStatCard div p,
+.volunteerStatCard h4 {
+    color: var(--primary-colour);
+}
+
+.volunteerStatCard {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+
+@media (max-width: 768px) {
+    .volunteerStatCard .icon {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+.card .card-body h5 {
+    color: var(--primary-colour);
+}
+
+.card .card-body p {
+    color: rgb(97, 96, 96);
+    font-weight: 600;
+}
+
+.pickUp-btn-avail {
+    color: var(--secondary-color);
+    background-color: #a0c1a9;
+}
+
+.pickup-card {
+    border-left-width: 0.7rem;
+    border-top-left-radius: 5rem;
+    border-left-style: solid;
+    border-left-color: #2d4a30;
+}
+
+.pickup-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pickup-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.responsive-card {
+    width: 100%;
+    max-width: 65rem;
+    box-sizing: border-box;
+}
+
+.pickup-cards-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.pickup-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pickup-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.pickup-card .pickup-details {
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.pickup-card .pickup-time {
+    min-width: 120px;
+}
+
+.pickup-card .pickup-locations {
+    flex: 1 1 auto;
+}
+
+.pickUp-btn-avail {
+    width: 100%;
+}
+
+
+@media (max-width: 576px) {
+    .card {
+        width: 100% !important;
+    }
+
+    .pickup-card .d-flex.flex-md-row {
+        flex-direction: column !important;
+        margin: 0 !important;
+        padding: 0% !important;
+    }
+
+    .pickup-card .d-flex.flex-column.align-items-end {
+        align-items: stretch !important;
+        margin: 0% !important;
+        padding: 0 !important;
+    }
+
+    .pickup-card>div>div {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+
+
+.volunteer-impact-section .volunteer-impact>div {
+    box-sizing: border-box;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.volunteer-impact-section .volunteer-impact>div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}

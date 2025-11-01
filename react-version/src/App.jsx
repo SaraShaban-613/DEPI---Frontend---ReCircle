@@ -9,6 +9,7 @@ import HowItWorks from './components/HowItWorks'
 import SignUp from './components/SignUp'
 import Community from './components/Community'
 import Dashboard from './components/Dashboard'
+import VolunteerDashboard from './components/VolunteerDashboard'
 
 function App() {
 
@@ -21,8 +22,9 @@ function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/impact' element={<ImpactOverview />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
-      {/* <Dashboard /> */}
+      <VolunteerDashboard />
       <Footer />
     </>
   )
