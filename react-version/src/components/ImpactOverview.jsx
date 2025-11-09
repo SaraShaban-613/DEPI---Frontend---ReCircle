@@ -27,8 +27,8 @@ function ImpactOverview() {
     ]
 
     return (
-        <main className="d-flex flex-column justify-content-center w-100"
-            style={{ padding: "2rem 0" }}>
+        <main id="impact-overview-component" className="d-flex flex-column justify-content-center w-100"
+            style={{ padding: "2rem 0", color: "#375840" }}>
             <section id="impact-summary" className="text-center my-3">
                 <h2 className="fw-bold mt-4" style={{ fontSize: "3rem", letterSpacing: "1px" }}>Global Impact</h2>
                 <p className="fs-4 fw-semibold mb-5">Together, we're creating measurable change in communities worldwide.</p>

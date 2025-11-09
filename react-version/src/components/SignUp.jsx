@@ -32,7 +32,9 @@ function SignUp() {
                 </div>
                 <div id="signup-box2" class="box d-flex justify-content-around align-items-center p-3 pt-4">
                     <p>Already have an account? </p>
-                    <p id="loginText">Log in</p>
+                    <Link to="/login">
+                        <p id="loginText">Log in</p>
+                    </Link>
                 </div>
             </div>
 

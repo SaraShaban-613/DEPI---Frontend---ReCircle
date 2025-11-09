@@ -1,4 +1,5 @@
 // src/components/Login.jsx
+import { Link } from "react-router-dom";
 import React from "react";
 import "./Login.css";       // all your “login-page” styles live here
 import logo from "../assets/logo.png";
@@ -48,7 +49,7 @@ export default function Login() {
                 </button>
 
                 <div className="signup-link">
-                    Don’t have an account? <a href="#">Sign Up</a>
+                    Don’t have an account? <Link to="/signup">Sign Up</Link>
                 </div>
             </div>
         </div>

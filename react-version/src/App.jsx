@@ -7,13 +7,11 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import HowItWorks from './components/HowItWorks'
 import SignUp from './components/SignUp'
-import Community from './components/Community'
 import Dashboard from './components/Dashboard'
 import DonorDashboard from './components/DonorDashboard'
 import VolunteerDashboard from './components/VolunteerDashboard'
-// import login from './components/Login'
-// import Login from "./components/Login";
-// import CommunityStories from "./components/Communitystories.jsx";
+import Login from "./components/Login";
+import CommunityStories from "./components/Communitystories.jsx";
 
 function App() {
 
@@ -23,13 +21,14 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<HowItWorks />} />
-        <Route path='/community' element={<Community />} />
+        <Route path='/community' element={<CommunityStories />} />
         <Route path='/impact' element={<ImpactOverview />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/donor' element={<DonorDashboard />} />
+        <Route path='/volunteer' element={<VolunteerDashboard />} />
       </Routes>
-      {/* <VolunteerDashboard /> */}
       <Footer />
     </>
   )

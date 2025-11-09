@@ -1,4 +1,5 @@
 import StepCard from "./StepCard";
+import { Link } from "react-router-dom";
 
 function HowItWorks() {
     const steps = [
@@ -43,7 +44,9 @@ function HowItWorks() {
                         })
                     }
                 </div>
-                <button id="start-steps" className="btn fs-4 fw-semibold">Get Started Now <i className="bi bi-arrow-right fs-3 fw-bold"></i></button>
+                <Link to="/signup">
+                    <button id="start-steps" className="btn fs-4 fw-semibold">Get Started Now <i className="bi bi-arrow-right fs-3 fw-bold"></i></button>
+                </Link>
             </section>
             <hr />
             <section id="whyChooseUs" className="text-center mb-5">
