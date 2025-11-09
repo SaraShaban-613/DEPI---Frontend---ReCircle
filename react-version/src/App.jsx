@@ -8,10 +8,9 @@ import './App.css'
 import HowItWorks from './components/HowItWorks'
 import SignUp from './components/SignUp'
 import Community from './components/Community'
+import Dashboard from './components/Dashboard'
 import DonorDashboard from './components/DonorDashboard'
 import VolunteerDashboard from './components/VolunteerDashboard'
-
-// import Dashboard from './components/Dashboard'
 // import login from './components/Login'
 // import Login from "./components/Login";
 // import CommunityStories from "./components/Communitystories.jsx";
@@ -27,9 +26,10 @@ function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/impact' element={<ImpactOverview />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/dashboard' element={<DonorDashboard />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/donor' element={<DonorDashboard />} />
       </Routes>
-      <VolunteerDashboard />
+      {/* <VolunteerDashboard /> */}
       <Footer />
     </>
   )
