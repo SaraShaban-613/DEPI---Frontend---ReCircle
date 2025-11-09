@@ -2,7 +2,7 @@ import StatCard from './Dashboard/StatCard';
 import RoleSelector from './Dashboard/RoleSelector';
 import DonationCard from './Dashboard/DonationCard';
 
-function Dashboard() {
+function DonorDashboard() {
     const donations = [
         {
             image: "/assets/plastic-recycle.jpg",
@@ -48,4 +48,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default DonorDashboard;

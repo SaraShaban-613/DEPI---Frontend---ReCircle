@@ -8,7 +8,7 @@ import './App.css'
 import HowItWorks from './components/HowItWorks'
 import SignUp from './components/SignUp'
 import Community from './components/Community'
-import Dashboard from './components/Dashboard'
+import DonorDashboard from './components/DonorDashboard'
 import VolunteerDashboard from './components/VolunteerDashboard'
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route path='/community' element={<Community />} />
         <Route path='/impact' element={<ImpactOverview />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboard' element={<DonorDashboard />} />
       </Routes>
       <VolunteerDashboard />
       <Footer />
