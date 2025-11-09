@@ -1,0 +1,426 @@
+.dashboard {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Header */
+.dashboard h1 {
+    text-align: center;
+    color: #375840;
+    font-size: 2rem;
+    margin-bottom: 4px;
+}
+.dashboard .subtitle {
+    text-align: center;
+    color: #556;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+/* Roles */
+.role-selection {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+.role-card {
+    flex: 1;
+    max-width: 200px;
+    background: #fff;
+    border: 1px solid #d5e5d5;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+.role-card:hover { border-color: #a8c3b0; }
+.role-card.selected {
+    background: #e8f2e6;
+    border-color: #a8c3b0;
+}
+.role-icon {
+    width: 48px; height: 48px;
+    margin: 0 auto 8px;
+    display: flex; align-items: center; justify-content: center;
+    background: #f8faf6;
+    border-radius: 50%;
+    font-size: 1.5rem; color: #375840;
+}
+.role-card h3 {
+    margin: 8px 0 4px;
+    font-size: 1.1rem; color: #375840;
+}
+.role-card p {
+    font-size: 0.85rem; color: #666;
+}
+
+/* Nav */
+.dashboard-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    background: #f0f4f2;
+    border-radius: 24px;
+    padding: 8px;
+    margin: 24px 0;
+}
+.nav-item {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    color: #777;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+.nav-item.active {
+    background: #e8f2e6;
+    color: #375840;
+}
+.nav-item i { font-size: 1.2rem; }
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+.stat-box {
+    background: #fff;
+    border: 1px solid #d5e5d5;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+}
+.stat-box i { font-size: 1.5rem; color: #375840; }
+.stat-value {
+    display: block;
+    font-size: 1.25rem; font-weight: 700; color: #375840;
+}
+.stat-label {
+    display: block;
+    font-size: 0.85rem; color: #666;
+}
+
+/* Active Requests */
+.requests-section {
+    background: #fff;
+    border: 1px solid #d5e5d5;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 32px;
+}
+.requests-section h3 {
+    margin: 0 0 4px;
+    font-size: 1.25rem; color: #375840;
+}
+.requests-section .section-subtitle {
+    font-size: 0.9rem; color: #666; margin-bottom: 16px;
+}
+.request-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-left: 4px solid #375840;
+    background: #f8faf6;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+}
+.request-info h4 {
+    margin: 0 0 4px;
+    font-size: 1rem; color: #375840;
+}
+.request-info p {
+    margin: 2px 0;
+    font-size: 0.85rem; color: #333;
+}
+.request-info .eta {
+    margin-top: 6px;
+    font-size: 0.75rem; color: #777;
+}
+.request-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.badge {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+.badge-track     { background: #375840; color: #fff; }
+.badge-info      { background: #e2edfc; color: #375840; }
+.badge-confirmed { background: #e8f2e6; color: #375840; }
+/* Available Donations Section */
+.donations-section {
+    background: #fff;
+    border: 1px solid #d5e5d5;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+.donations-section h3 {
+    margin: 0 0 4px;
+    color: #375840;
+    font-size: 1.25rem;
+}
+
+.donations-section .section-subtitle {
+    margin: 0 0 16px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Search Bar */
+.donation-search-wrapper {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.donation-search {
+    width: 100%;
+    padding: 8px 12px 8px 36px;
+    border: 1px solid #d5e5d5;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Donation List */
+.donation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Donation Card */
+.donation-card {
+    background: #fdfdfd;
+    border: 1px solid #d5e5d5;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.donation-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.card-title {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #375840;
+}
+
+.donation-tag {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.tag-food     { background: #e8f2e6; color: #375840; }
+.tag-clothing { background: #e2edf8; color: #375840; }
+
+/* Donor & Meta */
+.donor {
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.donation-meta {
+    display: flex;
+    gap: 24px;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.donation-meta i {
+    margin-right: 4px;
+    color: #888;
+}
+
+/* Note Badge */
+.donation-note {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.note-warning { background: #fdecea; color: #c0392b; }
+.note-info    { background: #eaf4fd; color: #035b9f; }
+.note-expired { background: #fdecea; color: #c0392b; }
+
+/* Action Button */
+.donation-btn {
+    display: inline-block;
+    background: #375840;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.tag {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+}
+.tag-food     { background: #6c9e44; }
+.tag-clothing { background: #4a6fa5; }
+.meta {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 4px 0;
+}
+.expires {
+    font-style: italic;
+}
+.btn-request {
+    margin-top: 8px;
+    background: #375840;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+/* continued from .btn-expired */
+
+.btn-expired {
+    margin-top: 8px;
+    background: #f5e6e6;
+    color: #c0392b;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: not-allowed;
+    font-size: 0.9rem;
+}
+
+/* Organization Impact */
+.impact-section {
+    background: #fff;
+    border: 1px solid #d5e5d5;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 40px;
+}
+
+.impact-section h3 {
+    margin: 0 0 4px;
+    font-size: 1.25rem;
+    color: #375840;
+}
+
+.impact-section .section-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.impact-cards {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.impact-card {
+    flex: 1;
+    background: #f8faf6;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.impact-card i {
+    font-size: 1.5rem;
+    color: #375840;
+}
+
+.impact-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #375840;
+}
+
+.impact-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.impact-bar {
+    height: 12px;
+    background: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.impact-progress {
+    height: 100%;
+    background: #375840;
+    transition: width 0.3s ease;
+}
+
+.impact-final {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .role-selection { flex-direction: column; align-items: center; }
+    .stats-grid     { grid-template-columns: 1fr 1fr; }
+    .impact-cards   { flex-direction: column; }
+}
