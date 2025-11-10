@@ -49,7 +49,7 @@ export default function Login() {
                 </button>
 
                 <div className="signup-link">
-                    Don’t have an account? <Link to="/signup">Sign Up</Link>
+                    <p className="fw-semibold">Don't have an account? &nbsp;&nbsp;<Link to="/signup" style={{ color: "#738a79" }}> Sign Up</Link></p>
                 </div>
             </div>
         </div>

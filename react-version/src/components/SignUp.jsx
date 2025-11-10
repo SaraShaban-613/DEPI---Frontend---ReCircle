@@ -4,7 +4,7 @@ function SignUp() {
     return (
         <main className="container my-5">
             <div class="wrapper p-3">
-                <div id="signup-box1" class="box">
+                <div id="signup-box1" class="box" style={{ backgroundColor: "white" }}>
                     <h2 className="fw-bold mb-3 fs-1">ReCircle</h2>
                     <p>Sign up to see photos and videos of your friends.</p>
 
@@ -30,8 +30,8 @@ function SignUp() {
 
                     <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
                 </div>
-                <div id="signup-box2" class="box d-flex justify-content-around align-items-center p-3 pt-4">
-                    <p>Already have an account? </p>
+                <div id="signup-box2" class="box d-flex justify-content-around align-items-center p-3 pt-4" style={{ backgroundColor: "white" }}>
+                    <p id="has-an-account">Already have an account? </p>
                     <Link to="/login">
                         <p id="loginText">Log in</p>
                     </Link>

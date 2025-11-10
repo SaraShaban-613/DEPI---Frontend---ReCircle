@@ -51,7 +51,7 @@ function HowItWorks() {
             <hr />
             <section id="whyChooseUs" className="text-center mb-5">
                 <h2 className="fw-bold mt-5" style={{ fontSize: "3rem", letterSpacing: "1px" }}>Why Choose ReCircle? </h2>
-                <p className="fs-5 fw-semibold my-4 mx-auto">Simple, efficient, and impactful. Turn your surplus
+                <p className="whyChooseUs-text fs-5 fw-semibold my-4 mx-auto">Simple, efficient, and impactful. Turn your surplus
                     into someone else's solution in just four easy steps.</p>
 
                 <div id="about-us" className="row d-flex justify-content-center gap-5 my-5 mx-auto">

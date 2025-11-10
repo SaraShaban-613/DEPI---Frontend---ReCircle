@@ -1,6 +1,6 @@
 function MonthProgress({ month, donations, prog, points }) {
     return (
-        <div className="month mb-4">
+        <div className="month mb-4" >
             <div className="progressLabels d-flex justify-content-between align-items-center mb-2">
                 <h5 className="fs-3">{month}</h5>
                 <p className="fs-5 fw-semibold mb-0 d-flex justify-content-end">{donations} Donations</p>

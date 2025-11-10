@@ -30,7 +30,7 @@ function ImpactOverview() {
         <main id="impact-overview-component" className="d-flex flex-column justify-content-center w-100"
             style={{ padding: "2rem 0", color: "#375840" }}>
             <section id="impact-summary" className="text-center my-3">
-                <h2 className="fw-bold mt-4" style={{ fontSize: "3rem", letterSpacing: "1px" }}>Global Impact</h2>
+                <h2 className="fw-bold mt-4" style={{ fontSize: "3rem", letterSpacing: "1px", color: "#375840" }}>Global Impact</h2>
                 <p className="fs-4 fw-semibold mb-5">Together, we're creating measurable change in communities worldwide.</p>
                 <div id="stats-overview" className="my-2 mx-auto">
                     <h4 className="fs-1 pt-2"><span>47</span></h4>
@@ -42,7 +42,7 @@ function ImpactOverview() {
             <section
                 id="impact-metrics"
                 className="container rounded-4 shadow my-3 mx-auto w-75"
-                style={{ padding: "6rem" }}
+                style={{ padding: "6rem", backgroundColor: "white" }}
             >
                 <div className="row">
                     {metrics.map((m, i) => (
@@ -53,7 +53,7 @@ function ImpactOverview() {
 
             <section id="monthlyProgress"
                 className="border border-2 d-flex flex-column mx-auto p-4 mt-5"
-                style={{ width: "75%", borderRadius: "3.5rem" }}
+                style={{ width: "75%", borderRadius: "3.5rem", backgroundColor: "#ffffffb7" }}
             >
                 <div className="title d-flex w-50 mx-4 mb-4">
                     <h2 className="ms-4 mt-3">
@@ -84,7 +84,7 @@ function ImpactOverview() {
 
             <section id="environmentImpact" className="border border-2 mx-auto my-5 p-5 rounded-5
             d-flex flex-column justify-content-center"
-                style={{ width: "35%" }}>
+                style={{ width: "35%", backgroundColor: "#ffffffb7" }}>
                 <h2>Environment Impact</h2>
 
                 <div className="plantImg mx-auto my-4">

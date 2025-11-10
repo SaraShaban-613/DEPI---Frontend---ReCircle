@@ -1018,3 +1018,24 @@ footer {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
+
+
+/*  --- extra edits ---  */
+
+#steps-summary h2,
+#steps-summary h5,
+.info-card i {
+    color: var(--primary-colour);
+}
+
+#whyChooseUs h2,
+.whyChooseUs-text,
+#about-us h5 {
+    color: var(--primary-colour);
+}
+
+#signup-box1 h2,
+#has-an-account,
+.signup-link p {
+    color: var(--primary-colour);
+}

@@ -7,10 +7,10 @@ function RoleSelector() {
 
     return (
         <section className="my-4 w-100">
-            <h2 className="fw-bold fs-1">Select Your Role</h2>
-            <p className="fw-semibold" style={{ fontSize: "1.2rem" }}>Choose how you'd like to participate in the ReCircle Community</p>
+            <h2 className="fw-bold fs-1" style={{ color: "#375840" }}>Select Your Role</h2>
+            <p className="fw-semibold" style={{ fontSize: "1.2rem", color: "#375840" }}>Choose how you'd like to participate in the ReCircle Community</p>
 
-            <div className="d-flex flex-wrap justify-content-center gap-5 my-5 w-100">
+            <div id="roles-select" className="d-flex flex-wrap justify-content-center gap-5 my-5 w-100">
                 {roles.map((role, i) => (
                     <div
                         key={i}
@@ -46,7 +46,7 @@ function RoleSelector() {
                     <i class="bi bi-people"></i>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
 
