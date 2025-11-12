@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
+function RoleSelector() {
+    const navigate = useNavigate();
+
+
 function RoleSelector() {
     const roles = [
-        { icon: "bi-heart", title: "Donor", text: "List and Donate items", active: true },
-        { icon: "bi-box-seam", title: "Volunteer", text: "Pickup & deliver donations" },
-        { icon: "bi-truck", title: "Recipient", text: "Browse & request items" },
+        { icon: "bi-heart", title: "Donor", text: "List and Donate items", active: true, path: "../DonorDashboard" },
+        { icon: "bi-box-seam", title: "Volunteer", text: "Pickup & deliver donations", path: "../VolunteerDashboard" },
+        { icon: "bi-truck", title: "Recipient", text: "Browse & request items", path: "../RecipientDashboard" },
     ];
 
     return (
@@ -19,6 +25,7 @@ function RoleSelector() {
                             width: "16rem", cursor: "pointer",
                             borderColor: role.active ? "#375840" : "#d6d6d6ff"
                         }}
+                        onClick={() => navigate(role.path)}
                     >
                         <div className="icon border mx-auto rounded-circle" style={{ width: "fit-content", padding: "0.5rem 1.1rem", backgroundColor: "rgba(239, 239, 239, 1)" }}>
                             <i className={`bi ${role.icon} fs-3`}></i>
@@ -48,6 +55,6 @@ function RoleSelector() {
             </div>
         </section >
     );
-}
+}}
 
 export default RoleSelector;
