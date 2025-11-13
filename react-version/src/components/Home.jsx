@@ -2,6 +2,8 @@
 import React from 'react';
 import './Home.css';
 import logo from "../assets/logo.png";
+import { Container, Row, Col } from "react-bootstrap"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
     return (
@@ -37,6 +39,72 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            {/* Stats Section */}
+            <Container className="text-center my-5 py-1">
+            <Row
+                className="justify-content-center"
+                style={{
+                display: "flex",
+                gap: "200px", // ← this creates visible horizontal spacing
+                flexWrap: "wrap", // ensures responsiveness
+                }}
+            >
+                <Col
+                xs={12}
+                md={3}
+                className="d-flex flex-column align-items-center"
+                style={{ margin: "15px 0" }}
+                >
+                <i
+                    className="bi bi-recycle"
+                    style={{ color: "#375840", fontSize: "4.5rem", marginBottom: "1rem" }}
+                ></i>
+                <h3 className="fw-bold" style={{ color: "#375840", fontSize: "2.2rem" }}>
+                    50K+
+                </h3>
+                <p className="fw-semibold" style={{ color: "#375840", fontSize: "1.2rem" }}>
+                    Pounds Diverted
+                </p>
+                </Col>
+
+                <Col
+                xs={12}
+                md={3}
+                className="d-flex flex-column align-items-center"
+                style={{ margin: "20px 0" }}
+                >
+                <i
+                    className="bi bi-heart"
+                    style={{ color: "#375840", fontSize: "4.5rem", marginBottom: "1rem" }}
+                ></i>
+                <h3 className="fw-bold" style={{ color: "#375840", fontSize: "2.2rem" }}>
+                    15K+
+                </h3>
+                <p className="fw-semibold" style={{ color: "#375840", fontSize: "1.2rem" }}>
+                    Meals Provided
+                </p>
+                </Col>
+
+                <Col
+                xs={12}
+                md={3}
+                className="d-flex flex-column align-items-center"
+                style={{ margin: "20px 0" }}
+                >
+                <i
+                    className="bi bi-people"
+                    style={{ color: "#375840", fontSize: "4.5rem", marginBottom: "1rem" }}
+                ></i>
+                <h3 className="fw-bold" style={{ color: "#375840", fontSize: "2.2rem" }}>
+                    2.3K+
+                </h3>
+                <p className="fw-semibold" style={{ color: "#375840", fontSize: "1.2rem" }}>
+                    Lives Helped
+                </p>
+                </Col>
+            </Row>
+            </Container>
+
 
             {/* Features Section */}
             <section className="features-section">
@@ -90,3 +158,138 @@ export default function Home() {
         </>
     );
 }
+
+// import React from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap-icons/font/bootstrap-icons.css";
+
+// export default function Home() {
+//   return (
+//     <div className="home-page text-center my-5 px-3">
+//       {/* Logo & Header */}
+//       <div className="container mb-5">
+//         <img
+//           src="/logo.png"
+//           alt="ReCircle Logo"
+//           className="mb-3"
+//           style={{ width: "90px" }}
+//         />
+//         <h1 className="fw-bold" style={{ color: "#375840" }}>
+//           Turn Surplus into Support
+//         </h1>
+//         <p className="fw-semibold" style={{ color: "#375840", fontSize: "1.2rem" }}>
+//           Join ReCircle’s community-driven platform that connects donors, volunteers,
+//           and recipients to reduce waste and help those in need.
+//         </p>
+//       </div>
+
+//       {/* Mission & Vision */}
+//       <div className="container my-5">
+//         <div className="row justify-content-center">
+//           <div className="col-md-4 mb-3">
+//             <div className="card border-0 shadow-sm rounded-4">
+//               <div className="card-body">
+//                 <h6 className="fw-bold text-white py-2 rounded-3" style={{ backgroundColor: "#375840" }}>
+//                   Our Mission
+//                 </h6>
+//                 <p className="mt-3 small fw-semibold" style={{ color: "#375840" }}>
+//                   “ReCircle connects donors, recipients, and volunteers to minimize waste,
+//                   support vulnerable communities, and make real impact through a smart,
+//                   user-friendly platform.”
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+
+//           <div className="col-md-4 mb-3">
+//             <div className="card border-0 shadow-sm rounded-4">
+//               <div className="card-body">
+//                 <h6 className="fw-bold text-white py-2 rounded-3" style={{ backgroundColor: "#375840" }}>
+//                   Our Vision
+//                 </h6>
+//                 <p className="mt-3 small fw-semibold" style={{ color: "#375840" }}>
+//                   “A world where surplus becomes opportunity and no resource goes to waste —
+//                   where generosity and technology unite to build sustainable, caring communities.”
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Stats Section */}
+//       <div className="container text-center my-5">
+//         <div className="row justify-content-center gy-4">
+//           <div className="col-md-4">
+//             <i className="bi bi-recycle fs-1" style={{ color: "#375840" }}></i>
+//             <h3 className="fw-bold mt-2" style={{ color: "#375840" }}>50K+</h3>
+//             <p className="fw-semibold" style={{ color: "#375840" }}>Pounds Diverted</p>
+//           </div>
+//           <div className="col-md-4">
+//             <i className="bi bi-heart fs-1" style={{ color: "#375840" }}></i>
+//             <h3 className="fw-bold mt-2" style={{ color: "#375840" }}>15K+</h3>
+//             <p className="fw-semibold" style={{ color: "#375840" }}>Meals Provided</p>
+//           </div>
+//           <div className="col-md-4">
+//             <i className="bi bi-people fs-1" style={{ color: "#375840" }}></i>
+//             <h3 className="fw-bold mt-2" style={{ color: "#375840" }}>2.3K+</h3>
+//             <p className="fw-semibold" style={{ color: "#375840" }}>Lives Helped</p>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Features Section */}
+//       <div className="container my-5">
+//         <div className="row gy-4">
+//           <div className="col-md-4">
+//             <div className="card border-0 shadow-sm rounded-4 h-100">
+//               <div className="card-body">
+//                 <i className="bi bi-recycle fs-1" style={{ color: "#375840" }}></i>
+//                 <h5 className="fw-bold mt-3" style={{ color: "#375840" }}>Reduce Waste</h5>
+//                 <p className="small fw-semibold text-secondary">
+//                   “Give surplus a second life”
+//                 </p>
+//                 <p className="small">
+//                   Donate extra food and clothing instead of letting them go to waste.
+//                   Every small act helps protect our planet.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+
+//           <div className="col-md-4">
+//             <div className="card border-0 shadow-sm rounded-4 h-100">
+//               <div className="card-body">
+//                 <i className="bi bi-heart fs-1" style={{ color: "#375840" }}></i>
+//                 <h5 className="fw-bold mt-3" style={{ color: "#375840" }}>Support Communities</h5>
+//                 <p className="small fw-semibold text-secondary">
+//                   “Your kindness, their hope”
+//                 </p>
+//                 <p className="small">
+//                   Connect with nearby charities, NGOs, and families in need.
+//                   Turn your generosity into real change.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+
+//           <div className="col-md-4">
+//             <div className="card border-0 shadow-sm rounded-4 h-100">
+//               <div className="card-body">
+//                 <i className="bi bi-graph-up fs-1" style={{ color: "#375840" }}></i>
+//                 <h5 className="fw-bold mt-3" style={{ color: "#375840" }}>Track Your Impact</h5>
+//                 <p className="small fw-semibold text-secondary">
+//                   “See the difference you make”
+//                 </p>
+//                 <p className="small">
+//                   Follow your donations from pickup to delivery and measure your impact
+//                   with our community-driven tracker.
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

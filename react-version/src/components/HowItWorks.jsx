@@ -33,7 +33,7 @@ function HowItWorks() {
     return (
         <main className="w-100">
             <section id="steps-summary" className="text-center my-5">
-                <h2 className="fw-bold mt-4" style={{ fontSize: "3rem", letterSpacing: "1px" }}>Global Impact</h2>
+                <h2 className="fw-bold mt-4" style={{ fontSize: "3rem", letterSpacing: "1px" }}>How It Works</h2>
                 <p className="fs-5 fw-semibold my-4 mx-auto">Simple, efficient, and impactful. Turn your surplus
                     into someone else's solution in just four easy steps.</p>
 
@@ -54,7 +54,7 @@ function HowItWorks() {
                 <p className="whyChooseUs-text fs-5 fw-semibold my-4 mx-auto">Simple, efficient, and impactful. Turn your surplus
                     into someone else's solution in just four easy steps.</p>
 
-                <div id="about-us" className="row d-flex justify-content-center gap-5 my-5 mx-auto">
+                <div id="about-us" className="row d-flex gap-5 my-5 mx-auto justify-content-center">
                     {
                         aboutUs.map((card, i) => {
                             return <StepCard key={i} {...card} className="clickable-card" />
