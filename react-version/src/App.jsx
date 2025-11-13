@@ -33,7 +33,7 @@ function App() {
       </Routes>
       */}
 
-      {/* <TestLogout /> */}
+      <TestLogout />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<HowItWorks />} />
@@ -48,8 +48,6 @@ function App() {
           <Route path="/volunteer" element={<VolunteerDashboard />} />
         </Route>
       </Routes>
-
-
 
       <Footer />
     </>
