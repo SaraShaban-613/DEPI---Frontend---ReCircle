@@ -70,7 +70,7 @@ function ImpactOverview() {
                 </div>
             </section>
 
-            <section id="achievements" className="mt-5 mx-auto" style={{ width: "35%" }}>
+            <section id="achievements" className="mt-5 mx-auto" style={{ width: "75%" }}>
                 <h2 className="my-3 d-flex align-items-center">
                     <i className="bi bi-award-fill fs-2 me-3"></i>Achievements
                 </h2>
@@ -84,7 +84,7 @@ function ImpactOverview() {
 
             <section id="environmentImpact" className="border border-2 mx-auto my-5 p-5 rounded-5
             d-flex flex-column justify-content-center"
-                style={{ width: "35%", backgroundColor: "#ffffffb7" }}>
+                style={{ width: "75%", backgroundColor: "#ffffffb7" }}>
                 <h2>Environment Impact</h2>
 
                 <div className="plantImg mx-auto my-4">
