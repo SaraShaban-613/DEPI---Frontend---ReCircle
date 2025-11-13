@@ -105,13 +105,15 @@ function Navbar() {
           <Link to="/about">How it works</Link>
           <Link to="/community">Community</Link>
           <Link to="/impact">Impact Tracker</Link>
-          <Link
+
+          {/* <Link
             to="/signup"
             className="login-btn py-2 px-3 rounded-3"
             style={{ fontSize: "1.2rem", fontWeight: "600" }}
           >
             Login&nbsp;/&nbsp;Signup
-          </Link>
+          </Link> */}
+
         </div>
 
         {/* Notification Bell with Dropdown */}
@@ -256,11 +258,11 @@ function Navbar() {
           </svg>
         </link> */}
 
-        <Link to="/dashboard" className="profile-icon">
-                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="1">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                        <circle cx="12" cy="7" r="4" />
-             </svg>
+        <Link to="/profile" className="profile-icon">
+          <svg viewBox="0 0 24 24" fill="none" strokeWidth="1">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
         </Link>
       </nav>
     </header>

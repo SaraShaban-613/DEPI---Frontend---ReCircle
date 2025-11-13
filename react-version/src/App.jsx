@@ -13,6 +13,8 @@ import Login from "./components/Login";
 import CommunityStories from "./components/Communitystories.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 import TestLogout from "./components/Testing";
+import Profile from "./components/Profile";
+
 
 function App() {
 
@@ -33,7 +35,7 @@ function App() {
       </Routes>
       */}
 
-      <TestLogout />
+      {/* <TestLogout /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<HowItWorks />} />
@@ -41,6 +43,7 @@ function App() {
         <Route path="/impact" element={<ImpactOverview />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />

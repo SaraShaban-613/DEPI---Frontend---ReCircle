@@ -28,7 +28,7 @@ export default function Login() {
             await user.reload();
 
             if (user.emailVerified) {
-                navigate('/dashboard');
+                navigate('/profile');
             } else {
                 setError("Please verify your email before logging in.");
             }
@@ -41,7 +41,7 @@ export default function Login() {
         const provider = new GoogleAuthProvider();
         try {
             await signInWithPopup(auth, provider);
-            navigate('/dashboard');
+            navigate('/profile');
         } catch (err) {
             setError(err.message);
         }
