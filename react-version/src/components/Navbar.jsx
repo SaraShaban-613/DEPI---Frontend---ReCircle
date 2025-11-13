@@ -90,13 +90,26 @@ function Navbar() {
       </div>
 
       {/* Navigation Links */}
-      <nav className="d-flex align-items-center gap-4">
-        <div className="links d-flex align-items-center gap-5">
-          <Link to="/">Home</Link>
+      <nav className="d-flex align-items-center gap-4 ">
+        {/* <div className="links d-flex align-items-center gap-5">
+          <Link to="/" >Home</Link>
           <Link to="/about">How it works</Link>
           <Link to="/community">Community</Link>
           <Link to="/impact">Impact Tracker</Link>
           <Link to="/signup" className="login-btn py-2 px-3 rounded-3">
+            Login&nbsp;/&nbsp;Signup
+          </Link>
+        </div> */}
+        <div className="links d-flex align-items-center gap-5" >
+          <Link to="/">Home</Link>
+          <Link to="/about">How it works</Link>
+          <Link to="/community">Community</Link>
+          <Link to="/impact">Impact Tracker</Link>
+          <Link
+            to="/signup"
+            className="login-btn py-2 px-3 rounded-3"
+            style={{ fontSize: "1.2rem", fontWeight: "600" }}
+          >
             Login&nbsp;/&nbsp;Signup
           </Link>
         </div>

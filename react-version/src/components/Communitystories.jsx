@@ -1,6 +1,9 @@
 // src/components/CommunityStories/CommunityStories.jsx
 import React from 'react';
 import './CommunityStories.css';
+import write from "../assets/write.png";
+import give from "../assets/give.png";
+
 
 export default function CommunityStories() {
     return (
@@ -32,7 +35,7 @@ export default function CommunityStories() {
 
                 {/* Stats Section */}
                 <div className="stats-section">
-                    <div className="stats-title">This Week's Community Impact</div>
+                    <div className="stats-title fs-3">This Week's Community Impact</div>
                     <div className="stats">
                         <div className="stat-item">
                             <div className="stat-number">147</div>
@@ -54,7 +57,7 @@ export default function CommunityStories() {
             <div className="community-section">
                 <div className="section-title">
                     Community Updates
-                    <button className="filter-btn">Filter</button>
+                    <button className="filter-btn border p-2 border rounded">Filter</button>
                 </div>
 
                 <div className="updates">
@@ -72,6 +75,7 @@ export default function CommunityStories() {
                         </div>
                         <div className="story-content">
                             Just completed 300+ pickups! Grateful to be part of the amazing community we're building together. Every action makes a difference! 💚
+                            <img src={write} alt="ReCircle Logo" class="img-fluid rounded-3 story-img p-3"/>
                         </div>
                         <div className="story-footer">
                             <div className="footer-item">
@@ -128,12 +132,9 @@ export default function CommunityStories() {
                         </div>
                         <div className="story-content">
                             What a wonderful initiative! I received items that I urgently needed for our community. Your contribution provides gifts and meaningful support. Your kindness is changing lives! 🙏
+                            <img src={give} alt="ReCircle Logo" class="img-fluid rounded-3 story-img p-3"/>
                         </div>
-                        <img
-                            src="https://images.unsplash.com/photo-1469571486292-2ba03a24127d?w=600&h=200&fit=crop"
-                            alt="Community support"
-                            className="story-image"
-                        />
+
                         <div className="story-footer">
                             <div className="footer-item">
                                 <i className="fas fa-heart"></i> 24
@@ -146,8 +147,41 @@ export default function CommunityStories() {
                             </div>
                         </div>
                     </div>
+
+                                        {/* Story Card #2 */}
+                    <div className="story-card">
+                        <div className="story-header">
+                            <div className="avatar" style={{background: 'linear-gradient(135deg, #1a4d7a, #2d6ba3)'}}>NA</div>
+                            <div className="story-info">
+                                <div className="story-name">Norhan Ashry</div>
+                                <div className="story-meta">
+                                    <span className="story-role">Donor</span>
+                                    <span>3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="story-content">
+                        Spring cleaning turned into a wonderful donation opportunity! Cleaned out my closet and found so many clothes my kids had outgrown. Happy to know they'll find new homes! ♻️
+                        </div>
+                        <div className="story-footer">
+                            <div className="footer-item">
+                                <i className="fas fa-heart"></i> 12
+                            </div>
+                            <div className="footer-item">
+                                <i className="fas fa-comment"></i> 3
+                            </div>
+                            <div className="footer-item">
+                                <i className="fas fa-share"></i> 1
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+                
             </div>
+                <div className="section-title justify-content-center d-flex my-4">
+                    <button className="filter-btn border p-3 border rounded justify-content-center"style={{ fontSize: "1.5rem", fontWeight: "500" }}>Load More Stories</button>
+                </div>
         </div>
     );
 }
