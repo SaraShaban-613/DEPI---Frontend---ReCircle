@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../components/firebaseConfig";
-import { createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo } from "firebase/auth";
 
 export default function SignUp() {
     const [email, setEmail] = useState('');
@@ -33,17 +33,42 @@ export default function SignUp() {
 
             // navigate('/login');
         } catch (err) {
-            setError(err.message);
+            if (err.code === "auth/email-already-in-use") {
+                setError("This email is already registered. Please log in instead.");
+            } else {
+                setError(err.message);
+            }
         }
     };
+
+    // const handleGoogleSignUp = async () => {
+    //     const provider = new GoogleAuthProvider();
+    //     try {
+    //         await signInWithPopup(auth, provider);
+    //         navigate('/'); // go to home after Google sign-in
+    //     } catch (err) {
+    //         setError(err.message);
+    //     }
+    // };
 
     const handleGoogleSignUp = async () => {
         const provider = new GoogleAuthProvider();
         try {
-            await signInWithPopup(auth, provider);
-            navigate('/'); // go to home after Google sign-in
+            const result = await signInWithPopup(auth, provider);
+            const info = getAdditionalUserInfo(result);
+
+            if (info.isNewUser) {
+                navigate("/");
+            } else {
+                setError("You've already signed up with this account. Please log in.");
+                await auth.signOut();
+            }
         } catch (err) {
-            setError(err.message);
+            if (err.code === "auth/account-exists-with-different-credential") {
+                setError("This Google account is already linked to another login method. Try signing in with that method.");
+            } else {
+                setError(err.message);
+            }
         }
     };
 
