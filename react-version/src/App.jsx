@@ -33,7 +33,7 @@ function App() {
       </Routes>
       */}
 
-      {/* <TestLogout /> Remove this after testing */}
+      <TestLogout />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<HowItWorks />} />
