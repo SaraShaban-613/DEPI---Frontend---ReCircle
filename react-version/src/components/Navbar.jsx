@@ -53,6 +53,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Recircle_Logo from "../assets/logo.png";
+import Sarah from "../assets/2.jpg";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -113,8 +114,8 @@ function Navbar() {
             Login&nbsp;/&nbsp;Signup
           </Link>
         </div>
-
-        {/* Notification Bell with Dropdown */}
+{/* 
+        Notification Bell with Dropdown
         <div
           className="notification-wrapper position-relative"
           ref={boxRef}
@@ -133,7 +134,7 @@ function Navbar() {
             <path d="M13.73 21a2 2 0 01-3.46 0" />
           </svg>
 
-          {/* Dropdown Panel */}
+          Dropdown Panel
           <div
             style={{
               position: "absolute",
@@ -162,7 +163,7 @@ function Navbar() {
               Notifications - <span style={{ color: "red" }}>2</span>
             </h2>
 
-            {/* Notification 1 */}
+            Notification 1
             <div
               style={{
                 display: "flex",
@@ -204,7 +205,7 @@ function Navbar() {
               </div>
             </div>
 
-            {/* Notification 2 */}
+            Notification 2
             <div
               style={{
                 display: "flex",
@@ -246,7 +247,193 @@ function Navbar() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+
+
+{/* Notification Dropdown */}
+<div
+  className="notification-wrapper position-relative"
+  ref={boxRef}
+  onClick={() => setOpen(!open)}
+  style={{ cursor: "pointer" }}
+>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#2F4F39"
+    strokeWidth="2"
+    width="24"
+    height="24"
+  >
+    <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+    <path d="M13.73 21a2 2 0 01-3.46 0" />
+  </svg>
+
+  {/* Dropdown Panel */}
+  <div
+    style={{
+      position: "absolute",
+      top: "35px",
+      right: 0,
+      width: "320px",
+      background: "#FFFFFF",
+      borderRadius: "14px",
+      border: "1px solid #D9E2DA",
+      boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+      overflow: "hidden",
+      opacity: open ? 1 : 0,
+      transform: open ? "translateY(0)" : "translateY(-8px)",
+      pointerEvents: open ? "auto" : "none",
+      transition: "all 0.25s ease",
+      zIndex: 1000,
+    }}
+  >
+    {/* Header */}
+    <div
+      style={{
+        padding: "12px 16px",
+        borderBottom: "1px solid #E7EFE8",
+        fontSize: "15px",
+        fontWeight: "600",
+        color: "#2F4F39",
+        background: "#F5FAF5",
+      }}
+    >
+      Notifications <span style={{ color: "#3B7A57" }}>(2)</span>
+    </div>
+
+    {/* Notification Item */}
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        padding: "12px 16px",
+        borderBottom: "1px solid #F0F4F0",
+        cursor: "pointer",
+        transition: "0.2s",
+      }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.background = "#EEF5EF")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.background = "white")
+      }
+    >
+      <img
+        src={Sarah}
+        alt="profile"
+        style={{
+          width: "42px",
+          height: "42px",
+          borderRadius: "50%",
+        }}
+      />
+      <div>
+        <h4
+          style={{
+            margin: 0,
+            fontSize: "14px",
+            fontWeight: "600",
+            color: "#2F4F39",
+          }}
+        >
+          Samso aliao
+        </h4>
+        <p
+          style={{
+            margin: 0,
+            fontSize: "13px",
+            color: "#5E6F62",
+          }}
+        >
+          Sarah liked your Recent post
+        </p>
+      </div>
+    </div>
+
+    {/* Notification 2 */}
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        padding: "12px 16px",
+        cursor: "pointer",
+        transition: "0.2s",
+      }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.background = "#EEF5EF")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.background = "white")
+      }
+    >
+    <div
+  className="avatar"
+  style={{
+    width: "44px",
+    height: "44px",
+    borderRadius: "50%",
+    background: "linear-gradient(135deg, #3d5a40, #2d4a30)",
+    flexShrink: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
+    fontWeight: 600,
+    fontSize: "15px",
+  }}
+>
+  MS
+</div>
+
+      <div>
+        <h4
+          style={{
+            margin: 0,
+            fontSize: "14px",
+            fontWeight: "600",
+            color: "#2F4F39",
+          }}
+        >
+          Mai Sayed
+        </h4>
+        <p
+          style={{
+            margin: 0,
+            fontSize: "13px",
+            color: "#5E6F62",
+          }}
+        >
+          Added New Post 
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         {/* Profile Icon */}
         {/* <link to="/dashboard" className="profile-icon">
