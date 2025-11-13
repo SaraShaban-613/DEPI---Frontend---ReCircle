@@ -31,7 +31,7 @@ export default function SignUp() {
             setName('');
             setUsername('');
 
-            // navigate('/login');
+            navigate('/login');
         } catch (err) {
             if (err.code === "auth/email-already-in-use") {
                 setError("This email is already registered. Please log in instead.");

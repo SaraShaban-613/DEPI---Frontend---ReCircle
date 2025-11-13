@@ -11,13 +11,15 @@ import DonorDashboard from './components/DonorDashboard'
 import VolunteerDashboard from './components/VolunteerDashboard'
 import Login from "./components/Login";
 import CommunityStories from "./components/Communitystories.jsx";
-
+import ProtectedRoute from "./components/ProtectedRoute";
+import TestLogout from "./components/Testing";
 
 function App() {
 
   return (
     <>
       <Navbar />
+      {/* 
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<HowItWorks />} />
@@ -29,6 +31,26 @@ function App() {
         <Route path='/donor' element={<DonorDashboard />} />
         <Route path='/volunteer' element={<VolunteerDashboard />} />
       </Routes>
+      */}
+
+      {/* <TestLogout /> Remove this after testing */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<HowItWorks />} />
+        <Route path="/community" element={<CommunityStories />} />
+        <Route path="/impact" element={<ImpactOverview />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/donor" element={<DonorDashboard />} />
+          <Route path="/volunteer" element={<VolunteerDashboard />} />
+        </Route>
+      </Routes>
+
+
+
       <Footer />
     </>
   )
