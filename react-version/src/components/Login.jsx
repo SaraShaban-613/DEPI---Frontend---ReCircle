@@ -128,11 +128,10 @@ export default function Login() {
                     </button>
                 </div>
 
-                <div id="login-box2" className="box d-flex justify-content-around align-items-center p-3 pt-4"
-                     style={{backgroundColor: "white"}}>
-                    <p id="no-account">Don't have an account?</p>
+                <div id="login-box2"className="box d-flex justify-content-around align-items-center p-3 pt-4" style={{ backgroundColor: "white"}}>
+                    <p id="no-account" style={{color: "#3d5a40", backgroundColor: "white", fontWeight: "600" }}>Don't have an account?</p>
                     <Link to="/signup">
-                        <p id="signupText" style={{color: "#738a79", fontWeight: "600"}}>Sign Up</p>
+                        <p id="signupText" style={{color: "#738a79", fontWeight: "600" }}>Sign Up</p>
                     </Link>
                 </div>
             </div>
