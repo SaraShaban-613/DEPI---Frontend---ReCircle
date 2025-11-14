@@ -6,14 +6,14 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import HowItWorks from './components/HowItWorks'
 import SignUp from './components/SignUp'
-import Dashboard from './components/Dashboard'
-import DonorDashboard from './components/DonorDashboard'
-import VolunteerDashboard from './components/VolunteerDashboard'
+// import Dashboard from './components/Dashboard'
+// import DonorDashboard from './components/DonorDashboard'
+// import VolunteerDashboard from './components/VolunteerDashboard'
 import Login from "./components/Login";
 import CommunityStories from "./components/Communitystories.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
-import TestLogout from "./components/Testing";
 import Profile from "./components/Profile";
+import MainDashboard from './components/MainDashboard.jsx'
 
 
 function App() {
@@ -46,9 +46,10 @@ function App() {
         <Route path="/profile" element={<Profile />} />
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/donor" element={<DonorDashboard />} />
-          <Route path="/volunteer" element={<VolunteerDashboard />} />
+          <Route path="/volunteer" element={<VolunteerDashboard />} /> */}
+          <Route path="/mainDashboard" element={<MainDashboard />} />
         </Route>
       </Routes>
 

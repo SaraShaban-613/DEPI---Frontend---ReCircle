@@ -1,9 +1,28 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../components/firebaseConfig";
+import { auth, db } from "../components/firebaseConfig";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, getAdditionalUserInfo } from "firebase/auth";
 
+
 export default function SignUp() {
+
+    async function ensureUserDocument(user) {
+        const ref = doc(db, "users", user.uid);
+        const snap = await getDoc(ref);
+
+        if (!snap.exists()) {
+            await setDoc(ref, {
+                email: user.email,
+                role: "donor",   // default role
+                createdAt: new Date(),
+            });
+        }
+
+        return ref;
+    }
+
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -12,6 +31,7 @@ export default function SignUp() {
     const [message, setMessage] = useState('');
 
     const navigate = useNavigate();
+
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -31,6 +51,17 @@ export default function SignUp() {
             setName('');
             setUsername('');
 
+            await ensureUserDocument(userCredential.user);
+
+            // then update additional info
+            await setDoc(doc(db, "users", userCredential.user.uid), {
+                email,
+                full_name: name,
+                username,
+                role: ["donor"], // default
+            }, { merge: true }); // <-- merge ensures we don’t overwrite
+
+
             navigate('/login');
         } catch (err) {
             if (err.code === "auth/email-already-in-use") {
@@ -41,24 +72,30 @@ export default function SignUp() {
         }
     };
 
-    // const handleGoogleSignUp = async () => {
-    //     const provider = new GoogleAuthProvider();
-    //     try {
-    //         await signInWithPopup(auth, provider);
-    //         navigate('/'); // go to home after Google sign-in
-    //     } catch (err) {
-    //         setError(err.message);
-    //     }
-    // };
-
     const handleGoogleSignUp = async () => {
         const provider = new GoogleAuthProvider();
         try {
             const result = await signInWithPopup(auth, provider);
             const info = getAdditionalUserInfo(result);
 
+            // if (info.isNewUser) {
+            //     await setDoc(doc(db, "users", result.user.uid), {
+            //         email: result.user.email,
+            //         full_name: result.user.displayName,
+            //         username: result.user.displayName.toLowerCase().replace(/\s+/g, ""),
+            //         role: ["donor"], // default
+            //     });
+            //     navigate("/");
+            // }
+            await ensureUserDocument(result.user);
+
             if (info.isNewUser) {
-                navigate("/");
+                await setDoc(doc(db, "users", result.user.uid), {
+                    full_name: result.user.displayName,
+                    username: result.user.displayName.toLowerCase().replace(/\s+/g, ""),
+                    role: ["donor"], // default
+                }, { merge: true });
+                navigate("/profile");
             } else {
                 setError("You've already signed up with this account. Please log in.");
                 await auth.signOut();

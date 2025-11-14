@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import StatCard from './Dashboard/StatCard';
+import RoleSelector from './Dashboard/RoleSelector';
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -83,39 +85,7 @@ export default function Dashboard() {
     ];
 
     return (
-        <div className="dashboard">
-            <h1>Select Your Role</h1>
-            <p className="subtitle">Choose how you’d like to participate in the ReCircle Community</p>
-
-            {/* Roles */}
-            <div className="role-selection">
-                {roles.map(r => (
-                    <div
-                        key={r.key}
-                        className={`role-card ${role === r.key ? 'selected' : ''}`}
-                        onClick={() => setRole(r.key)}
-                    >
-                        <div className="role-icon"><i className={r.icon}></i></div>
-                        <h3>{r.title}</h3>
-                        <p>{r.subtitle}</p>
-                    </div>
-                ))}
-            </div>
-
-
-            {/* Nav */}
-            <nav className="dashboard-nav">
-                {navItems.map(n => (
-                    <div
-                        key={n.key}
-                        className={`nav-item ${nav === n.key ? 'active' : ''}`}
-                        onClick={() => setNav(n.key)}
-                    >
-                        <i className={n.icon}></i>
-                    </div>
-                ))}
-            </nav>
-
+        <div className="dashboard w-75">
             {/* Stats */}
             <div className="stats-grid">
                 {stats.map(s => (
@@ -150,7 +120,7 @@ export default function Dashboard() {
             </div>
 
             {/* Available Donations */}
-            <div className="donations-section">
+            <div className="donations-section w-100">
                 <h3>Available Donations Near You</h3>
                 <p className="section-subtitle">
                     Browse and request items from donors in your community
@@ -206,7 +176,7 @@ export default function Dashboard() {
             </div>
             {/* Organization Impact */}
             <div className="impact-section">
-                <h3>Your Organization’s Impact</h3>
+                <h3>Your Organization's Impact</h3>
                 <p className="section-subtitle">How donations are helping your community</p>
                 <div className="impact-cards">
                     <div className="impact-card">

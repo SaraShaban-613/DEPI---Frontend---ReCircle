@@ -33,7 +33,7 @@ function DonationCard({ image, title, quantity, time, status }) {
                 style={{ marginLeft: "1rem", padding: "0.5rem 1rem" }}
             >
                 <div className="d-flex justify-content-between align-items-start">
-                    <h6 className="fw-bold mb-1">{title}</h6>
+                    <h6 className="fw-bold mb-1" style={{ color: "#375840" }}>{title}</h6>
                     <span
                         className="badge rounded-4 fw-semibold p-2"
                         style={{

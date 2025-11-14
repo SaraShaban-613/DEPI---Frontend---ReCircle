@@ -8,8 +8,26 @@ import {
     GoogleAuthProvider,
     signInWithPopup
 } from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "./firebaseConfig";
 
 export default function Login() {
+
+    async function ensureUserDocument(user) {
+        const ref = doc(db, "users", user.uid);
+        const snap = await getDoc(ref);
+
+        if (!snap.exists()) {
+            await setDoc(ref, {
+                email: user.email,
+                role: "donor",   // default role
+                createdAt: new Date(),
+            });
+        }
+
+        return ref;
+    }
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -40,8 +58,10 @@ export default function Login() {
     const handleGoogleLogin = async () => {
         const provider = new GoogleAuthProvider();
         try {
-            await signInWithPopup(auth, provider);
+            const result = await signInWithPopup(auth, provider);
+            await ensureUserDocument(result.user);
             navigate('/profile');
+            await ensureUserDocument(user);
         } catch (err) {
             setError(err.message);
         }

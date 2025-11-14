@@ -1,18 +1,31 @@
 .dashboard {
-    max-width: 900px;
+    /*max-width: 900px;*/
     margin: 40px auto;
     padding: 0 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
 }
 
+.dashboard h2,
+.dashboard p,
+h5 {
+    text-align: center;
+    color: #375840;
+}
+
+i {
+    color: #375840;
+}
+
+
 /* Header */
-.dashboard h1 {
+.dashboard h2 {
     text-align: center;
     color: #375840;
     font-size: 2rem;
     margin-bottom: 4px;
 }
+
 .dashboard .subtitle {
     text-align: center;
     color: #556;
@@ -27,6 +40,7 @@
     justify-content: center;
     margin-bottom: 24px;
 }
+
 .role-card {
     flex: 1;
     max-width: 200px;
@@ -38,25 +52,38 @@
     cursor: pointer;
     transition: background 0.3s, border-color 0.3s;
 }
-.role-card:hover { border-color: #a8c3b0; }
+
+.role-card:hover {
+    border-color: #a8c3b0;
+}
+
 .role-card.selected {
     background: #e8f2e6;
     border-color: #a8c3b0;
 }
+
 .role-icon {
-    width: 48px; height: 48px;
+    width: 48px;
+    height: 48px;
     margin: 0 auto 8px;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #f8faf6;
     border-radius: 50%;
-    font-size: 1.5rem; color: #375840;
+    font-size: 1.5rem;
+    color: #375840;
 }
+
 .role-card h3 {
     margin: 8px 0 4px;
-    font-size: 1.1rem; color: #375840;
+    font-size: 1.1rem;
+    color: #375840;
 }
+
 .role-card p {
-    font-size: 0.85rem; color: #666;
+    font-size: 0.85rem;
+    color: #666;
 }
 
 /* Nav */
@@ -69,6 +96,7 @@
     padding: 8px;
     margin: 24px 0;
 }
+
 .nav-item {
     flex: 1;
     text-align: center;
@@ -78,19 +106,24 @@
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
 }
+
 .nav-item.active {
     background: #e8f2e6;
     color: #375840;
 }
-.nav-item i { font-size: 1.2rem; }
+
+.nav-item i {
+    font-size: 1.2rem;
+}
 
 /* Stats */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     margin-bottom: 32px;
 }
+
 .stat-box {
     background: #fff;
     border: 1px solid #d5e5d5;
@@ -100,14 +133,23 @@
     gap: 12px;
     padding: 12px 16px;
 }
-.stat-box i { font-size: 1.5rem; color: #375840; }
+
+.stat-box i {
+    font-size: 1.5rem;
+    color: #375840;
+}
+
 .stat-value {
     display: block;
-    font-size: 1.25rem; font-weight: 700; color: #375840;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #375840;
 }
+
 .stat-label {
     display: block;
-    font-size: 0.85rem; color: #666;
+    font-size: 0.85rem;
+    color: #666;
 }
 
 /* Active Requests */
@@ -118,13 +160,19 @@
     padding: 16px;
     margin-bottom: 32px;
 }
+
 .requests-section h3 {
     margin: 0 0 4px;
-    font-size: 1.25rem; color: #375840;
+    font-size: 1.25rem;
+    color: #375840;
 }
+
 .requests-section .section-subtitle {
-    font-size: 0.9rem; color: #666; margin-bottom: 16px;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 16px;
 }
+
 .request-card {
     display: flex;
     justify-content: space-between;
@@ -135,23 +183,31 @@
     padding: 12px 16px;
     margin-bottom: 12px;
 }
+
 .request-info h4 {
     margin: 0 0 4px;
-    font-size: 1rem; color: #375840;
+    font-size: 1rem;
+    color: #375840;
 }
+
 .request-info p {
     margin: 2px 0;
-    font-size: 0.85rem; color: #333;
+    font-size: 0.85rem;
+    color: #333;
 }
+
 .request-info .eta {
     margin-top: 6px;
-    font-size: 0.75rem; color: #777;
+    font-size: 0.75rem;
+    color: #777;
 }
+
 .request-badges {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
+
 .badge {
     padding: 4px 8px;
     font-size: 0.75rem;
@@ -159,9 +215,22 @@
     border-radius: 12px;
     text-transform: uppercase;
 }
-.badge-track     { background: #375840; color: #fff; }
-.badge-info      { background: #e2edfc; color: #375840; }
-.badge-confirmed { background: #e8f2e6; color: #375840; }
+
+.badge-track {
+    background: #375840;
+    color: #fff;
+}
+
+.badge-info {
+    background: #e2edfc;
+    color: #375840;
+}
+
+.badge-confirmed {
+    background: #e8f2e6;
+    color: #375840;
+}
+
 /* Available Donations Section */
 .donations-section {
     background: #fff;
@@ -256,8 +325,15 @@
     font-weight: 600;
 }
 
-.tag-food     { background: #e8f2e6; color: #375840; }
-.tag-clothing { background: #e2edf8; color: #375840; }
+.tag-food {
+    background: #e8f2e6;
+    color: #375840;
+}
+
+.tag-clothing {
+    background: #e2edf8;
+    color: #375840;
+}
 
 /* Donor & Meta */
 .donor {
@@ -288,9 +364,20 @@
     display: inline-block;
 }
 
-.note-warning { background: #fdecea; color: #c0392b; }
-.note-info    { background: #eaf4fd; color: #035b9f; }
-.note-expired { background: #fdecea; color: #c0392b; }
+.note-warning {
+    background: #fdecea;
+    color: #c0392b;
+}
+
+.note-info {
+    background: #eaf4fd;
+    color: #035b9f;
+}
+
+.note-expired {
+    background: #fdecea;
+    color: #c0392b;
+}
 
 /* Action Button */
 .donation-btn {
@@ -303,6 +390,7 @@
     font-size: 0.9rem;
     cursor: pointer;
 }
+
 .tag {
     padding: 2px 8px;
     border-radius: 12px;
@@ -310,16 +398,25 @@
     font-weight: 600;
     color: #fff;
 }
-.tag-food     { background: #6c9e44; }
-.tag-clothing { background: #4a6fa5; }
+
+.tag-food {
+    background: #6c9e44;
+}
+
+.tag-clothing {
+    background: #4a6fa5;
+}
+
 .meta {
     font-size: 0.8rem;
     color: #666;
     margin: 4px 0;
 }
+
 .expires {
     font-style: italic;
 }
+
 .btn-request {
     margin-top: 8px;
     background: #375840;
@@ -330,6 +427,7 @@
     cursor: pointer;
     font-size: 0.9rem;
 }
+
 /* continued from .btn-expired */
 
 .btn-expired {
@@ -420,7 +518,16 @@
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
-    .role-selection { flex-direction: column; align-items: center; }
-    .stats-grid     { grid-template-columns: 1fr 1fr; }
-    .impact-cards   { flex-direction: column; }
+    .role-selection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .impact-cards {
+        flex-direction: column;
+    }
 }

@@ -5,7 +5,7 @@ import PickupRequests from './Dashboard/PickupRequests';
 function VolunteerDashboard() {
     return (
         <main className="container my-5 text-center">
-            <RoleSelector />
+            {/* <RoleSelector /> */}
             <VolunteerStatCard />
             <PickupRequests />
         </main>

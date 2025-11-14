@@ -8,7 +8,7 @@ function VolunteerStatCard() {
                         className="icon d-flex align-items-center justify-content-center rounded-circle bg-light"
                         style={{ width: "40px", height: "40px" }}
                     >
-                        <i className="bi bi-check fs-2"></i>
+                        <i className="bi bi-check fs-2" style={{ color: "#375840" }}></i>
                     </div>
                     <div className="volText text-start">
                         <h4 className="fw-bold mb-2 fs-1" style={{ fontWeight: "bolder" }}>47</h4>
@@ -24,7 +24,7 @@ function VolunteerStatCard() {
                         className="icon d-flex align-items-center justify-content-center rounded-circle bg-light"
                         style={{ width: "40px", height: "40px" }}
                     >
-                        <i className="bi bi-cursor fs-4"></i>
+                        <i className="bi bi-cursor fs-4" style={{ color: "#375840" }}></i>
                     </div>
                     <div className="volText text-start">
                         <h4 className="fw-bold mb-2 fs-1" style={{ fontWeight: "bolder" }}>132</h4>
@@ -40,7 +40,7 @@ function VolunteerStatCard() {
                         className="icon d-flex align-items-center justify-content-center rounded-circle bg-light"
                         style={{ width: "40px", height: "40px" }}
                     >
-                        <i className="bi bi-box-seam fs-4"></i>
+                        <i className="bi bi-box-seam fs-4" style={{ color: "#375840" }}></i>
                     </div>
                     <div className="volText text-start">
                         <h4 className="fw-bold mb-2 fs-1" style={{ fontWeight: "bolder" }}>284</h4>
@@ -56,7 +56,7 @@ function VolunteerStatCard() {
                         className="icon d-flex align-items-center justify-content-center rounded-circle bg-light mt-0"
                         style={{ width: "40px", height: "40px" }}
                     >
-                        <i className="bi bi-graph-up-arrow fs-4"></i>
+                        <i className="bi bi-graph-up-arrow fs-4" style={{ color: "#375840" }}></i>
                     </div>
                     <div className="volText text-start">
                         <h4 className="fw-bold mb-2 fs-1" style={{ fontWeight: "bolder" }}>8</h4>

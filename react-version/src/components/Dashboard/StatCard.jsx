@@ -7,12 +7,12 @@ function StatCard() {
             <section id="donations" className="d-flex flex-column justify-content-center w-50 mx-auto">
                 <div className="d-flex flex-column flex-md-row gap-3 mb-4">
                     <div className="stat-card p-3 border rounded-4 text-center flex-fill">
-                        <h3 className="fw-bold">12</h3>
-                        <p className="fw-semibold">Total Donations</p>
+                        <h3 className="fw-bold" style={{ color: "#375840" }}>12</h3>
+                        <p className="fw-semibold" style={{ color: "#375840" }}>Total Donations</p>
                     </div>
                     <div className="stat-card p-3 border rounded-4 text-center flex-fill">
-                        <h3 className="fw-bold">89</h3>
-                        <p className="fw-semibold">Lives Helped</p>
+                        <h3 className="fw-bold" style={{ color: "#375840" }}>89</h3>
+                        <p className="fw-semibold" style={{ color: "#375840" }}>Lives Helped</p>
                     </div>
                 </div>
                 <section className="p-4 border rounded-4">
