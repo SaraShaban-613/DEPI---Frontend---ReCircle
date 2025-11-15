@@ -193,6 +193,103 @@ import './CommunityStories.css';
 import write from "../assets/write.png";
 import give from "../assets/give.png";
 
+// Custom Toast Notification Component
+const Toast = ({ message, type = 'success', onClose }) => {
+    useEffect(() => {
+        const timer = setTimeout(onClose, 3000);
+        return () => clearTimeout(timer);
+    }, [onClose]);
+
+    const icons = {
+        success: 'fas fa-check-circle',
+        error: 'fas fa-exclamation-circle',
+        info: 'fas fa-info-circle'
+    };
+
+    const colors = {
+        success: '#3d5a40',
+        error: '#d32f2f',
+        info: '#2196f3'
+    };
+
+    return (
+        <div className="toast-notification" style={{ borderLeftColor: colors[type] }}>
+            <i className={icons[type]} style={{ color: colors[type] }}></i>
+            <span>{message}</span>
+            <button className="toast-close" onClick={onClose}>
+                <i className="fas fa-times"></i>
+            </button>
+        </div>
+    );
+};
+
+// Custom Confirmation Dialog Component
+const ConfirmDialog = ({ title, message, onConfirm, onCancel, confirmText = 'Delete', cancelText = 'Cancel' }) => {
+    return (
+        <div className="confirm-overlay" onClick={onCancel}>
+            <div className="confirm-dialog" onClick={(e) => e.stopPropagation()}>
+                <div className="confirm-icon">
+                    <i className="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 className="confirm-title">{title}</h3>
+                <p className="confirm-message">{message}</p>
+                <div className="confirm-actions">
+                    <button className="confirm-btn-cancel" onClick={onCancel}>
+                        {cancelText}
+                    </button>
+                    <button className="confirm-btn-delete" onClick={onConfirm}>
+                        {confirmText}
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Custom Prompt Dialog Component
+const PromptDialog = ({ title, message, placeholder, onSubmit, onCancel }) => {
+    const [value, setValue] = useState('');
+
+    const handleSubmit = () => {
+        if (value.trim()) {
+            onSubmit(value);
+        }
+    };
+
+    return (
+        <div className="confirm-overlay" onClick={onCancel}>
+            <div className="confirm-dialog" onClick={(e) => e.stopPropagation()}>
+                <div className="confirm-icon" style={{ background: 'linear-gradient(135deg, #3d5a40, #2d4a30)' }}>
+                    <i className="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 className="confirm-title">{title}</h3>
+                <p className="confirm-message">{message}</p>
+                <input
+                    type="text"
+                    className="prompt-input"
+                    placeholder={placeholder}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
+                    autoFocus
+                />
+                <div className="confirm-actions">
+                    <button className="confirm-btn-cancel" onClick={onCancel}>
+                        Cancel
+                    </button>
+                    <button
+                        className="confirm-btn-submit"
+                        onClick={handleSubmit}
+                        disabled={!value.trim()}
+                    >
+                        Add Location
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 // Sample data with hashtags
 const initialStories = [
     {
@@ -317,8 +414,8 @@ const FilterDropdown = ({ activeFilter, onFilterChange, storyCounts, onClose }) 
     );
 };
 
-// Share Modal Component (keep existing)
-const ShareModal = ({ story, onClose }) => {
+// Share Modal Component
+const ShareModal = ({ story, onClose, showToast }) => {
     const shareUrl = window.location.href;
     const shareText = `${story.content.substring(0, 100)}${story.content.length > 100 ? '...' : ''}`;
 
@@ -384,10 +481,10 @@ const ShareModal = ({ story, onClose }) => {
             color: '#3d5a40',
             action: () => {
                 navigator.clipboard.writeText(shareUrl).then(() => {
-                    alert('Link copied to clipboard!');
+                    showToast('Link copied to clipboard!', 'success');
                     onClose();
                 }).catch(() => {
-                    alert('Failed to copy link');
+                    showToast('Failed to copy link', 'error');
                 });
             }
         }
@@ -422,7 +519,7 @@ const ShareModal = ({ story, onClose }) => {
     );
 };
 
-// Comments Section Component (keep existing)
+// Comments Section Component
 const CommentsSection = ({ storyId, comments, onAddComment, onEditComment, onDeleteComment, onClose }) => {
     const [newComment, setNewComment] = useState('');
     const [editingId, setEditingId] = useState(null);
@@ -550,13 +647,7 @@ const CommentsSection = ({ storyId, comments, onAddComment, onEditComment, onDel
 };
 
 // Story Card Component
-const StoryCard = ({
-    story,
-    onLike,
-    onComment,
-    onShare,
-    onDelete
-}) => {
+const StoryCard = ({ story, onLike, onComment, onShare, onDelete }) => {
     const [showLikeAnimation, setShowLikeAnimation] = useState(false);
     const [showCommentAnimation, setShowCommentAnimation] = useState(false);
 
@@ -661,6 +752,7 @@ const StoryCard = ({
     );
 };
 
+// MAIN COMPONENT
 export default function CommunityStories() {
     const [stories, setStories] = useState(initialStories);
     const [storyInput, setStoryInput] = useState('');
@@ -673,6 +765,12 @@ export default function CommunityStories() {
     const [activeShareStoryId, setActiveShareStoryId] = useState(null);
     const [activeFilter, setActiveFilter] = useState('all');
     const [showFilterDropdown, setShowFilterDropdown] = useState(false);
+
+    // NEW STATES FOR NOTIFICATIONS
+    const [toast, setToast] = useState(null);
+    const [confirmDialog, setConfirmDialog] = useState(null);
+    const [promptDialog, setPromptDialog] = useState(null);
+
     const [stats, setStats] = useState({
         stories: 147,
         comments: 892,
@@ -681,6 +779,11 @@ export default function CommunityStories() {
 
     const fileInputRef = useRef(null);
     const filterRef = useRef(null);
+
+    // Show toast notification
+    const showToast = (message, type = 'success') => {
+        setToast({ message, type });
+    };
 
     // Close filter dropdown when clicking outside
     useEffect(() => {
@@ -727,6 +830,9 @@ export default function CommunityStories() {
             const tag = hashtagInput.trim().replace(/^#/, '').toLowerCase();
             if (!currentHashtags.includes(tag)) {
                 setCurrentHashtags([...currentHashtags, tag]);
+                showToast(`Hashtag #${tag} added!`, 'success');
+            } else {
+                showToast('Hashtag already exists', 'info');
             }
             setHashtagInput('');
         }
@@ -734,6 +840,7 @@ export default function CommunityStories() {
 
     const removeHashtag = (tagToRemove) => {
         setCurrentHashtags(currentHashtags.filter(tag => tag !== tagToRemove));
+        showToast(`Hashtag #${tagToRemove} removed`, 'info');
     };
 
     // Handle photo upload
@@ -747,6 +854,7 @@ export default function CommunityStories() {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setSelectedImage(reader.result);
+                showToast('Photo added successfully!', 'success');
             };
             reader.readAsDataURL(file);
         }
@@ -759,20 +867,34 @@ export default function CommunityStories() {
                 (position) => {
                     const location = `${position.coords.latitude.toFixed(2)}, ${position.coords.longitude.toFixed(2)}`;
                     setSelectedLocation(location);
-                    alert(`Location added: ${location}`);
+                    showToast(`Location added: ${location}`, 'success');
                 },
                 (error) => {
-                    const manualLocation = prompt("Enter your location:");
-                    if (manualLocation) {
-                        setSelectedLocation(manualLocation);
-                    }
+                    setPromptDialog({
+                        title: 'Add Location',
+                        message: 'Geolocation is not available. Please enter your location manually:',
+                        placeholder: 'e.g., Cairo, Egypt',
+                        onSubmit: (location) => {
+                            setSelectedLocation(location);
+                            showToast('Location added successfully!', 'success');
+                            setPromptDialog(null);
+                        },
+                        onCancel: () => setPromptDialog(null)
+                    });
                 }
             );
         } else {
-            const manualLocation = prompt("Geolocation not supported. Enter your location:");
-            if (manualLocation) {
-                setSelectedLocation(manualLocation);
-            }
+            setPromptDialog({
+                title: 'Add Location',
+                message: 'Please enter your location:',
+                placeholder: 'e.g., Cairo, Egypt',
+                onSubmit: (location) => {
+                    setSelectedLocation(location);
+                    showToast('Location added successfully!', 'success');
+                    setPromptDialog(null);
+                },
+                onCancel: () => setPromptDialog(null)
+            });
         }
     };
 
@@ -797,7 +919,6 @@ export default function CommunityStories() {
     };
 
     // Handle adding a comment
-    // Handle adding a comment
     const handleAddComment = (storyId, commentText) => {
         const newComment = {
             id: Date.now(),
@@ -814,6 +935,7 @@ export default function CommunityStories() {
                     : story
             )
         );
+        showToast('Comment added!', 'success');
     };
 
     // Handle editing a comment
@@ -832,22 +954,31 @@ export default function CommunityStories() {
                     : story
             )
         );
+        showToast('Comment updated!', 'success');
     };
 
     // Handle deleting a comment
     const handleDeleteComment = (storyId, commentId) => {
-        if (window.confirm("Are you sure you want to delete this comment?")) {
-            setStories(prevStories =>
-                prevStories.map(story =>
-                    story.id === storyId
-                        ? {
-                            ...story,
-                            comments: story.comments.filter(comment => comment.id !== commentId)
-                        }
-                        : story
-                )
-            );
-        }
+        setConfirmDialog({
+            title: 'Delete Comment',
+            message: 'Are you sure you want to delete this comment? This action cannot be undone.',
+            confirmText: 'Delete',
+            onConfirm: () => {
+                setStories(prevStories =>
+                    prevStories.map(story =>
+                        story.id === storyId
+                            ? {
+                                ...story,
+                                comments: story.comments.filter(comment => comment.id !== commentId)
+                            }
+                            : story
+                    )
+                );
+                showToast('Comment deleted', 'success');
+                setConfirmDialog(null);
+            },
+            onCancel: () => setConfirmDialog(null)
+        });
     };
 
     // Handle share action
@@ -866,19 +997,31 @@ export default function CommunityStories() {
     const handleLoadMore = () => {
         setStories(prevStories => [...prevStories, ...additionalStories]);
         setHasMoreStories(false);
+        showToast(`${additionalStories.length} more stories loaded!`, 'success');
     };
 
     // Handle deleting a story
     const handleDeleteStory = (storyId) => {
-        if (window.confirm("Are you sure you want to delete this post?")) {
-            setStories(prevStories => prevStories.filter(story => story.id !== storyId));
-        }
+        setConfirmDialog({
+            title: 'Delete Post',
+            message: 'Are you sure you want to delete this post? This action cannot be undone.',
+            confirmText: 'Delete Post',
+            onConfirm: () => {
+                setStories(prevStories => prevStories.filter(story => story.id !== storyId));
+                showToast('Post deleted successfully', 'success');
+                setConfirmDialog(null);
+            },
+            onCancel: () => setConfirmDialog(null)
+        });
     };
 
     // Handle filter change
     const handleFilterChange = (filter) => {
         setActiveFilter(filter);
         setShowFilterDropdown(false);
+        if (filter !== 'all') {
+            showToast(`Filtering by ${filter}`, 'info');
+        }
     };
 
     // Handle submitting a new story
@@ -908,6 +1051,7 @@ export default function CommunityStories() {
             setSelectedLocation(null);
             setCurrentHashtags([]);
             setHashtagInput('');
+            showToast('Story posted successfully! 🎉', 'success');
         }
     };
 
@@ -917,6 +1061,37 @@ export default function CommunityStories() {
 
     return (
         <div className="main-content">
+            {/* Toast Notification */}
+            {toast && (
+                <Toast
+                    message={toast.message}
+                    type={toast.type}
+                    onClose={() => setToast(null)}
+                />
+            )}
+
+            {/* Confirmation Dialog */}
+            {confirmDialog && (
+                <ConfirmDialog
+                    title={confirmDialog.title}
+                    message={confirmDialog.message}
+                    confirmText={confirmDialog.confirmText}
+                    onConfirm={confirmDialog.onConfirm}
+                    onCancel={confirmDialog.onCancel}
+                />
+            )}
+
+            {/* Prompt Dialog */}
+            {promptDialog && (
+                <PromptDialog
+                    title={promptDialog.title}
+                    message={promptDialog.message}
+                    placeholder={promptDialog.placeholder}
+                    onSubmit={promptDialog.onSubmit}
+                    onCancel={promptDialog.onCancel}
+                />
+            )}
+
             {/* Hidden file input */}
             <input
                 ref={fileInputRef}
@@ -978,7 +1153,10 @@ export default function CommunityStories() {
                             <img src={selectedImage} alt="Preview" />
                             <button
                                 className="remove-image-btn"
-                                onClick={() => setSelectedImage(null)}
+                                onClick={() => {
+                                    setSelectedImage(null);
+                                    showToast('Photo removed', 'info');
+                                }}
                             >
                                 <i className="fas fa-times"></i>
                             </button>
@@ -991,7 +1169,10 @@ export default function CommunityStories() {
                             <i className="fas fa-map-marker-alt"></i> {selectedLocation}
                             <button
                                 className="remove-location-btn"
-                                onClick={() => setSelectedLocation(null)}
+                                onClick={() => {
+                                    setSelectedLocation(null);
+                                    showToast('Location removed', 'info');
+                                }}
                             >
                                 <i className="fas fa-times"></i>
                             </button>
@@ -1120,37 +1301,44 @@ export default function CommunityStories() {
             </div>
 
             {/* Load More Button */}
-            {hasMoreStories && filteredStories.length > 0 && (
-                <div className="section-title justify-content-center d-flex my-4">
-                    <button
-                        className="filter-btn border p-3 border rounded justify-content-center"
-                        style={{ fontSize: "1.5rem", fontWeight: "500" }}
-                        onClick={handleLoadMore}
-                    >
-                        Load More Stories
-                    </button>
-                </div>
-            )}
+            {
+                hasMoreStories && filteredStories.length > 0 && (
+                    <div className="section-title justify-content-center d-flex my-4">
+                        <button
+                            className="filter-btn border p-3 border rounded justify-content-center"
+                            style={{ fontSize: "1.5rem", fontWeight: "500" }}
+                            onClick={handleLoadMore}
+                        >
+                            Load More Stories
+                        </button>
+                    </div>
+                )
+            }
 
             {/* Comments Modal */}
-            {activeCommentsStoryId && activeStory && (
-                <CommentsSection
-                    storyId={activeCommentsStoryId}
-                    comments={activeStory.comments}
-                    onAddComment={handleAddComment}
-                    onEditComment={handleEditComment}
-                    onDeleteComment={handleDeleteComment}
-                    onClose={() => setActiveCommentsStoryId(null)}
-                />
-            )}
+            {
+                activeCommentsStoryId && activeStory && (
+                    <CommentsSection
+                        storyId={activeCommentsStoryId}
+                        comments={activeStory.comments}
+                        onAddComment={handleAddComment}
+                        onEditComment={handleEditComment}
+                        onDeleteComment={handleDeleteComment}
+                        onClose={() => setActiveCommentsStoryId(null)}
+                    />
+                )
+            }
 
             {/* Share Modal */}
-            {activeShareStoryId && activeShareStory && (
-                <ShareModal
-                    story={activeShareStory}
-                    onClose={() => setActiveShareStoryId(null)}
-                />
-            )}
-        </div>
+            {
+                activeShareStoryId && activeShareStory && (
+                    <ShareModal
+                        story={activeShareStory}
+                        onClose={() => setActiveShareStoryId(null)}
+                        showToast={showToast}
+                    />
+                )
+            }
+        </div >
     );
 }

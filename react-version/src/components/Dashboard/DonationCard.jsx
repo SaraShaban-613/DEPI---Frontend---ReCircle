@@ -24,6 +24,7 @@ function DonationCard({ image, title, quantity, time, status }) {
                         height: "100%",
                         objectFit: "cover",
                         display: "block",
+                        borderRadius: "1rem",
                     }}
                 />
             </div>

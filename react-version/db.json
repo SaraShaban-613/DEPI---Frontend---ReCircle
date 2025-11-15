@@ -1,0 +1,76 @@
+{
+  "userRoles": [
+    {
+      "id": "2397",
+      "role": "donor"
+    },
+    {
+      "id": "1134",
+      "role": "volunteer"
+    },
+    {
+      "id": "c34b",
+      "role": "recipient"
+    },
+    {
+      "id": "c0e2",
+      "role": "donor"
+    },
+    {
+      "id": "deb6",
+      "role": "volunteer"
+    },
+    {
+      "id": "6915",
+      "role": "recipient"
+    },
+    {
+      "id": "3a4c",
+      "role": "donor"
+    },
+    {
+      "id": "7b28",
+      "role": "volunteer"
+    },
+    {
+      "id": "591e",
+      "role": "recipient"
+    },
+    {
+      "id": "44ef",
+      "role": "donor"
+    },
+    {
+      "id": "cdbc",
+      "role": "donor"
+    },
+    {
+      "id": "3b58",
+      "role": "donor"
+    },
+    {
+      "id": "5373",
+      "role": "volunteer"
+    },
+    {
+      "id": "2eca",
+      "role": "recipient"
+    },
+    {
+      "id": "2c89",
+      "role": "donor"
+    },
+    {
+      "id": "034c",
+      "role": "volunteer"
+    },
+    {
+      "id": "671d",
+      "role": "recipient"
+    },
+    {
+      "id": "4825",
+      "role": "donor"
+    }
+  ]
+}

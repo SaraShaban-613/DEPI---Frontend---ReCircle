@@ -16,18 +16,23 @@ function StatCard() {
                     </div>
                 </div>
                 <section className="p-4 border rounded-4">
-                    <h5 className="fw-bold mb-3 text-start"><i className="bi bi-box-seam mx-2"></i> Quick Donate</h5>
-                    <div className="d-flex flex-wrap justify-content-center gap-3 mt-5">
-                        <div className="donation-btn fw-semibold"
-                            style={{ backgroundColor: " #375840", color: "white" }}>
-                            <i class="bi bi-fork-knife fs-4 mb-2"></i>
-                            <p className="fw-bold">Food Items</p></div>
-                        <div className="donation-btn fw-semibold align-items-center justify-content-center">
-                            <i class="fa-solid fa-shirt fs-4 mb-2 pt-2"></i>
-                            <p className="fw-bold">Clothing</p>
+                    <h5 className="fw-bold mb-3 text-start">
+                        <i className="bi bi-box-seam mx-2"></i> Quick Donate
+                    </h5>
+                    <div className="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                        <div className="donation-btn d-flex flex-column align-items-center justify-content-center fw-semibold"
+                            style={{ backgroundColor: "#375840", color: "white", minWidth: "150px", minHeight: "100px", borderRadius: "12px" }}>
+                            <i className="bi bi-fork-knife fs-4 mb-2"></i>
+                            <p className="fw-bold my-auto pb-5">Food Items</p>
+                        </div>
+                        <div className="donation-btn d-flex flex-column align-items-center justify-content-center fw-semibold"
+                            style={{ backgroundColor: "#375840", color: "white", minWidth: "150px", minHeight: "100px", borderRadius: "12px" }}>
+                            <i className="fa-solid fa-shirt fs-4 mb-2"></i>
+                            <p className="fw-bold my-auto pb-4">Clothing</p>
                         </div>
                     </div>
                 </section>
+
             </section>
         </>
     );

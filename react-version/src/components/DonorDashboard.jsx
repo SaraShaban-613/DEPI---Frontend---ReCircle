@@ -163,11 +163,18 @@ function DonorDashboard() {
                             className="form-control mb-2"
                         />
                         <input
-                            type="text"
-                            name="image"
-                            placeholder="Image URL"
-                            value={newDonation.image}
-                            onChange={handleChange}
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => {
+                                const file = e.target.files[0];
+                                if (file) {
+                                    const reader = new FileReader();
+                                    reader.onloadend = () => {
+                                        setNewDonation({ ...newDonation, image: reader.result });
+                                    };
+                                    reader.readAsDataURL(file);
+                                }
+                            }}
                             className="form-control mb-2"
                         />
                         <select
