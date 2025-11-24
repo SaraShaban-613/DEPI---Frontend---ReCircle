@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import StatCard from './Dashboard/StatCard';
 import RoleSelector from './Dashboard/RoleSelector';
+import fruit from "../assets/fruits.png";
+import cloth from "../assets/jacket.png";
+import food from "../assets/dinner.png";
 import './Dashboard.css';
 
 export default function Dashboard() {
     // Roles
-    const [role, setRole] = useState('donor');
-    const roles = [
-        { key: 'donor', icon: 'far fa-heart', title: 'Donor', subtitle: 'List and Donate items' },
-        { key: 'volunteer', icon: 'fas fa-hands-helping', title: 'Volunteer', subtitle: 'Pickup & deliver donations' },
-        { key: 'recipient', icon: 'fas fa-truck', title: 'Recipient', subtitle: 'Browse & request items' },
-    ];
+    // const [role, setRole] = useState('donor');
+    // const roles = [
+    //     { key: 'donor', icon: 'far fa-heart', title: 'Donor', subtitle: 'List and Donate items' },
+    //     { key: 'volunteer', icon: 'fas fa-hands-helping', title: 'Volunteer', subtitle: 'Pickup & deliver donations' },
+    //     { key: 'recipient', icon: 'fas fa-truck', title: 'Recipient', subtitle: 'Browse & request items' },
+    // ];
 
-    // Nav
-    const [nav, setNav] = useState('home');
-    const navItems = [
-        { key: 'home', icon: 'fas fa-home' },
-        { key: 'loc', icon: 'fas fa-map-marker-alt' },
-        { key: 'box', icon: 'fas fa-box' },
-        { key: 'chart', icon: 'fas fa-chart-line' },
-        { key: 'people', icon: 'fas fa-users' },
-    ];
+    // // Nav
+    // const [nav, setNav] = useState('home');
+    // const navItems = [
+    //     { key: 'home', icon: 'fas fa-home' },
+    //     { key: 'loc', icon: 'fas fa-map-marker-alt' },
+    //     { key: 'box', icon: 'fas fa-box' },
+    //     { key: 'chart', icon: 'fas fa-chart-line' },
+    //     { key: 'people', icon: 'fas fa-users' },
+    // ];
 
     // Stats
     const stats = [
@@ -62,7 +65,8 @@ export default function Dashboard() {
             dist: '1.2 miles away',
             expires: '2 days',
             action: 'Request This Donation',
-            cls: 'btn-request'
+            cls: 'btn-request',
+            image: fruit
         },
         {
             title: 'Winter Clothing (Coats, Sweaters)',
@@ -71,7 +75,9 @@ export default function Dashboard() {
             dist: '0.8 miles away',
             expires: '5 days',
             action: 'Request This Donation',
-            cls: 'btn-request'
+            cls: 'btn-request',
+            image: cloth
+
         },
         {
             title: 'Packaged Meals (Sandwiches, Salads)',
@@ -80,7 +86,8 @@ export default function Dashboard() {
             dist: '2.1 miles away',
             expires: 'Expired Today',
             action: 'Consume Today',
-            cls: 'btn-expired'
+            cls: 'btn-expired',
+            image: food
         }
     ];
 
@@ -119,7 +126,7 @@ export default function Dashboard() {
                 ))}
             </div>
 
-            {/* Available Donations */}
+            {/* {/* Available Donations */}
             <div className="donations-section w-100">
                 <h3>Available Donations Near You</h3>
                 <p className="section-subtitle">
@@ -173,7 +180,8 @@ export default function Dashboard() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> 
+
             {/* Organization Impact */}
             <div className="impact-section">
                 <h3>Your Organization's Impact</h3>

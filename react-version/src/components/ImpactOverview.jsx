@@ -11,13 +11,29 @@ function ImpactOverview() {
         { icon: "bi-graph-down-arrow", value: "70 kg", label: "Carbon footprint reduced" },
     ];
 
+    // const awards = [
+    //     { title: "First Donation", date: "Jan 15", description: "Made your first donation", bg: "#3d5a40", iconColor: "#fff" },
+    //     { title: "First Donation", date: "Mar 22", description: "Helped 50+ people", bg: "#3d5a40", iconColor: "#fff" },
+    //     { title: "First Donation", date: "Apr 8", description: "Diverted 150+ kg of waste", bg: "#3d5a40", iconColor: "#fff" },
+    //     { title: "First Donation", date: "Apr 15", description: "Saved 75+ kg CO₂", bg: "#3d5a40", iconColor: "#fff" },
+    //     { title: "Generous Giver", progress: 94, description: "Make 50 donations", bg: "#f8f9fa", iconColor: "#3d5a40", border: "1px solid #3d5a40", icon: "bi-hand-thumbs-up" },
+    // ];
     const awards = [
-        { title: "First Donation", date: "Jan 15", description: "Made your first donation", bg: "#3d5a40", iconColor: "#fff" },
-        { title: "First Donation", date: "Mar 22", description: "Helped 50+ people", bg: "#3d5a40", iconColor: "#fff" },
-        { title: "First Donation", date: "Apr 8", description: "Diverted 150+ kg of waste", bg: "#3d5a40", iconColor: "#fff" },
-        { title: "First Donation", date: "Apr 15", description: "Saved 75+ kg CO₂", bg: "#3d5a40", iconColor: "#fff" },
-        { title: "Generous Giver", progress: 94, description: "Make 50 donations", bg: "#f8f9fa", iconColor: "#3d5a40", border: "1px solid #3d5a40" },
-    ];
+    { title: "First Donation", date: "Jan 15", description: "Made your first donation", bg: "#3d5a40", iconColor: "#fff" },
+    { title: "First Donation", date: "Mar 22", description: "Helped 50+ people", bg: "#3d5a40", iconColor: "#fff" },
+    { title: "First Donation", date: "Apr 8", description: "Diverted 150+ kg of waste", bg: "#3d5a40", iconColor: "#fff" },
+    { title: "First Donation", date: "Apr 15", description: "Saved 75+ kg CO₂", bg: "#3d5a40", iconColor: "#fff" },
+];
+const generousGiver = {
+    title: "Generous Giver",
+    progress: 94,
+    description: "Make 50 donations",
+    bg: "#f8f9fa",
+    iconColor: "#3d5a40",
+    border: "1px solid #3d5a40",
+    icon: "bi-award-fill",
+};
+
 
     const months = [
         { month: "Jan", donations: 8, prog: 66, points: 65 },
@@ -69,7 +85,7 @@ function ImpactOverview() {
                     }
                 </div>
             </section>
-
+{/* 
             <section id="achievements" className="mt-5 mx-auto" style={{ width: "75%" }}>
                 <h2 className="my-3 d-flex align-items-center">
                     <i className="bi bi-award-fill fs-2 me-3"></i>Achievements
@@ -80,7 +96,22 @@ function ImpactOverview() {
                         <AwardCard key={i} {...a} />
                     ))}
                 </div>
+            </section> */}
+            <section id="achievements" className="mt-5 mx-auto" style={{ width: "75%" }}>
+                <h2 className="my-3 d-flex align-items-center">
+                    <i className="bi bi-award-fill fs-2 me-3"></i>Achievements
+                </h2>
+
+                <div className="awards d-flex flex-column gap-3">
+                    {awards.map((a, i) => (
+                        <AwardCard key={i} {...a} />
+                    ))}
+
+                    {/* Render generous giver separately */}
+                    <AwardCard {...generousGiver} />
+                </div>
             </section>
+
 
             <section id="environmentImpact" className="border border-2 mx-auto my-5 p-5 rounded-5
             d-flex flex-column justify-content-center"
