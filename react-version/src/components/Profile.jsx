@@ -24,71 +24,6 @@ export default function Profile() {
     }
 
     return (
-        // <div style={{
-        //     display: "flex",
-        //     flexDirection: "column",
-        //     justifyContent: "center",
-        //     alignItems: "center",
-        //     minHeight: "60vh", padding: "1rem",
-        //     backgroundColor: "#f5f5f5",
-        //     textAlign: "center"
-        // }}>
-        //     <h2 style={{
-        //         fontSize: "1.5rem", marginBottom: "0.5rem",
-        //         fontWeight: "500", color: "#375840"
-        //     }}>
-        //         Welcome, {user.full_name || user.email}!</h2>
-        //     {/* <p style={{ fontSize: "1rem", marginBottom: "1rem", color: "#333" }}>Email: {user.email}</p> */}
-
-        //     <div style={{ display: "flex", gap: "1rem", marginBottom: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
-        //         <button
-        //             onClick={() => navigate("/donor")}
-        //             style={{
-        //                 padding: "0.6rem 1.2rem",
-        //                 fontSize: "0.9rem",
-        //                 fontWeight: "500",
-        //                 border: "0.1rem solid #375840",
-        //                 borderRadius: "0.3rem",
-        //                 backgroundColor: "white",
-        //                 color: "#375840",
-        //                 cursor: "pointer"
-        //             }}
-        //         >
-        //             Donor Dashboard
-        //         </button>
-        //         <button
-        //             onClick={() => navigate("/volunteer")}
-        //             style={{
-        //                 padding: "0.6rem 1.2rem",
-        //                 fontSize: "0.9rem",
-        //                 fontWeight: "500",
-        //                 border: "0.1rem solid #375840",
-        //                 borderRadius: "0.3rem",
-        //                 backgroundColor: "white",
-        //                 color: "#375840",
-        //                 cursor: "pointer"
-        //             }}
-        //         >
-        //             Volunteer Dashboard
-        //         </button>
-        //         <button
-        //             onClick={() => navigate("/dashboard")}
-        //             style={{
-        //                 padding: "0.6rem 1.2rem",
-        //                 fontSize: "0.9rem",
-        //                 fontWeight: "500",
-        //                 border: "0.1rem solid #375840",
-        //                 borderRadius: "0.3rem",
-        //                 backgroundColor: "white",
-        //                 color: "#375840",
-        //                 cursor: "pointer"
-        //             }}
-        //         >
-        //             Recipient Dashboard
-        //         </button>
-        //     </div>
-
-
         <div>
             <div style={{
                 display: "flex",
@@ -100,9 +35,12 @@ export default function Profile() {
                 backgroundColor: "#f5f5f5",
                 textAlign: "center"
             }}>
-                <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem", fontWeight: "500", color: "#375840" }}>
+                <h2 style={{ fontSize: "1.5rem", marginBottom: "0.4rem", fontWeight: "500", color: "#375840" }}>
                     Welcome, {user.displayName || user.email}!
                 </h2>
+                <p style={{ marginTop: "0.6rem", marginBottom: "2rem", fontStyle: "italic", color: "#777" }}>
+                    "Every small action counts. Keep making a difference!"
+                </p>
 
                 <button
                     onClick={() => navigate("/mainDashboard")} // route to MainDashboard

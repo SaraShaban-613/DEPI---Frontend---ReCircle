@@ -6,9 +6,6 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import HowItWorks from './components/HowItWorks'
 import SignUp from './components/SignUp'
-// import Dashboard from './components/Dashboard'
-// import DonorDashboard from './components/DonorDashboard'
-// import VolunteerDashboard from './components/VolunteerDashboard'
 import Login from "./components/Login";
 import CommunityStories from "./components/Communitystories.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -21,21 +18,6 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* 
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<HowItWorks />} />
-        <Route path='/community' element={<CommunityStories />} />
-        <Route path='/impact' element={<ImpactOverview />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/donor' element={<DonorDashboard />} />
-        <Route path='/volunteer' element={<VolunteerDashboard />} />
-      </Routes>
-      */}
-
-      {/* <TestLogout /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<HowItWorks />} />
@@ -44,11 +26,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
-
         <Route element={<ProtectedRoute />}>
-          {/* <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/donor" element={<DonorDashboard />} />
-          <Route path="/volunteer" element={<VolunteerDashboard />} /> */}
           <Route path="/mainDashboard" element={<MainDashboard />} />
         </Route>
       </Routes>
